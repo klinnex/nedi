@@ -1,5 +1,5 @@
 FROM php:5.6-apache
-MAINTAINER Yann Deboeuf <yann.deboeuf@gmail.com>
+MAINTAINER Klinnex
 
 # Install required deb packages
 RUN apt-get update && \ 
