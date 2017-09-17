@@ -44,12 +44,12 @@ RUN tar -xzf /tmp/${PHPIPAM_VERSION}.tar.gz -C /var/www/html/ --strip-components
 
 # Use system environment variables into config.php
 RUN sed -i \ 
-	-e "s/\['host'\] = 'localhost'/\['host'\] = getenv("MYSQL_HOST")/" \ 
-        -e "s/\['user'\] = 'phpipam'/\['user'\] = getenv("MYSQL_USER")/" \ 
-        -e "s/\['pass'\] = 'phpipamadmin'/\['pass'\] = getenv("MYSQL_PASSWORD")/" \ 
-        -e "s/\['name'\] = 'phpipam'/\['name'\] = getenv("MYSQL_DB")/" \ 
-        -e "s/\['port'\] = 3306/\['port'\] = getenv("MYSQL_PORT")/" \ 
-        -e "s/\['ssl'\] *= false/\['ssl'\] = getenv(\"SSL\")/" \ 
+	-e "s/\['host'\] = 'localhost'/\['host'\] = getenv(MYSQL_HOST)/" \ 
+        -e "s/\['user'\] = 'phpipam'/\['user'\] = getenv(MYSQL_USER)/" \ 
+        -e "s/\['pass'\] = 'phpipamadmin'/\['pass'\] = getenv(MYSQL_PASSWORD)/" \ 
+        -e "s/\['name'\] = 'phpipam'/\['name'\] = getenv(MYSQL_DB)/" \ 
+        -e "s/\['port'\] = 3306/\['port'\] = getenv(MYSQL_PORT)/" \ 
+        -e "s/\['ssl'\] *= false/\['ssl'\] = getenv(SSL)/" \ 
         -e "s/\['ssl_key'\] *= \"\/path\/to\/cert.key\"/['ssl_key'\] = getenv(\"SSL_KEY\")/" \ 
         -e "s/\['ssl_cert'\] *= \"\/path\/to\/cert.crt\"/['ssl_cert'\] = getenv(\"SSL_CERT\")/" \ 
         -e "s/\['ssl_ca'\] *= \"\/path\/to\/ca.crt\"/['ssl_ca'\] = getenv(\"SSL_CA\")/" \ 
