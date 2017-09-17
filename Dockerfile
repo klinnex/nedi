@@ -19,7 +19,7 @@ RUN docker-php-ext-configure mysqli --with-mysqli=mysqlnd && \
 	a2enmod rewrite
 
 ENV PHPIPAM_SOURCE="https://github.com/phpipam/phpipam/archive/" \
-    PHPIPAM_VERSION="1.2" \
+    PHPIPAM_VERSION="1.3" \
     MYSQL_HOST="mysql" \
     MYSQL_USER="phpipam" \
     MYSQL_PASSWORD="phpipamadmin" \
