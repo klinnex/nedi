@@ -44,17 +44,17 @@ RUN tar -xzf /tmp/${PHPIPAM_VERSION}.tar.gz -C /var/www/html/ --strip-components
 
 # Use system environment variables into config.php
 RUN sed -i \ 
-	-e "s/\['host'\] = 'localhost'/\['host'\] = getenv($MYSQL_HOST)/" \ 
-        -e "s/\['user'\] = 'phpipam'/\['user'\] = $MYSQL_USER)/" \ 
-        -e "s/\['pass'\] = 'phpipamadmin'/\['pass'\] = getenv("$MYSQL_PASSWORD")/" \ 
-        -e "s/\['name'\] = 'phpipam'/\['name'\] = getenv(MYSQL_DB)/" \ 
-        -e "s/\['port'\] = 3306/\['port'\] = getenv(MYSQL_PORT)/" \ 
-        -e "s/\['ssl'\] *= false/\['ssl'\] = getenv(SSL)/" \ 
-        -e "s/\['ssl_key'\] *= \"\/path\/to\/cert.key\"/['ssl_key'\] = getenv(\"SSL_KEY\")/" \ 
-        -e "s/\['ssl_cert'\] *= \"\/path\/to\/cert.crt\"/['ssl_cert'\] = getenv(\"SSL_CERT\")/" \ 
-        -e "s/\['ssl_ca'\] *= \"\/path\/to\/ca.crt\"/['ssl_ca'\] = getenv(\"SSL_CA\")/" \ 
-        -e "s/\['ssl_capath'\] *= \"\/path\/to\/ca_certs\"/['ssl_capath'\] = getenv(\"SSL_CAPATH\")/" \ 
-        -e "s/\['ssl_cipher'\] *= \"DHE-RSA-AES256-SHA:AES128-SHA\"/['ssl_cipher'\] = getenv(\"SSL_CIPHER\")/" \
+	-e "s/\['host'\] = 'localhost'/\['host'\] = $MYSQL_HOST/" \ 
+        -e "s/\['user'\] = 'phpipam'/\['user'\] = $MYSQL_USER/" \ 
+        -e "s/\['pass'\] = 'phpipamadmin'/\['pass'\] = $MYSQL_PASSWORD/" \ 
+        -e "s/\['name'\] = 'phpipam'/\['name'\] = $MYSQL_DB/" \ 
+        -e "s/\['port'\] = 3306/\['port'\] = $MYSQL_PORT/" \ 
+        -e "s/\['ssl'\] *= false/\['ssl'\] = $SSL/" \ 
+        -e "s/\['ssl_key'\] *= \"\/path\/to\/cert.key\"/['ssl_key'\] = $SSL_KEY/" \ 
+        -e "s/\['ssl_cert'\] *= \"\/path\/to\/cert.crt\"/['ssl_cert'\] = $SSL_CERT/" \ 
+        -e "s/\['ssl_ca'\] *= \"\/path\/to\/ca.crt\"/['ssl_ca'\] = $SSL_CA/" \ 
+        -e "s/\['ssl_capath'\] *= \"\/path\/to\/ca_certs\"/['ssl_capath'\] = $SSL_CAPATH/" \ 
+        -e "s/\['ssl_cipher'\] *= \"DHE-RSA-AES256-SHA:AES128-SHA\"/['ssl_cipher'\] = $SSL_CIPHER/" \
         /var/www/html/config.php
 
 
