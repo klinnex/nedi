@@ -50,11 +50,11 @@ RUN sed -i \
         -e "s/\['name'\] = 'phpipam'/\['name'\] = $MYSQL_DB/" \ 
         -e "s/\['port'\] = 3306/\['port'\] = $MYSQL_PORT/" \ 
         -e "s/\['ssl'\] *= false/\['ssl'\] = $SSL/" \ 
-        -e "s/\['ssl_key'\] *= \"\/path\/to\/cert.key\"/['ssl_key'\] = $SSL_KEY/" \ 
-        -e "s/\['ssl_cert'\] *= \"\/path\/to\/cert.crt\"/['ssl_cert'\] = $SSL_CERT/" \ 
-        -e "s/\['ssl_ca'\] *= \"\/path\/to\/ca.crt\"/['ssl_ca'\] = $SSL_CA/" \ 
-        -e "s/\['ssl_capath'\] *= \"\/path\/to\/ca_certs\"/['ssl_capath'\] = $SSL_CAPATH/" \ 
-        -e "s/\['ssl_cipher'\] *= \"DHE-RSA-AES256-SHA:AES128-SHA\"/['ssl_cipher'\] = $SSL_CIPHER/" \
+#        -e "s/\['ssl_key'\] *= \"\/path\/to\/cert.key\"/['ssl_key'\] = $SSL_KEY/" \ 
+#        -e "s/\['ssl_cert'\] *= \"\/path\/to\/cert.crt\"/['ssl_cert'\] = $SSL_CERT/" \ 
+#        -e "s/\['ssl_ca'\] *= \"\/path\/to\/ca.crt\"/['ssl_ca'\] = $SSL_CA/" \ 
+#        -e "s/\['ssl_capath'\] *= \"\/path\/to\/ca_certs\"/['ssl_capath'\] = $SSL_CAPATH/" \ 
+#        -e "s/\['ssl_cipher'\] *= \"DHE-RSA-AES256-SHA:AES128-SHA\"/['ssl_cipher'\] = $SSL_CIPHER/" \
         /var/www/html/config.php
 
 
