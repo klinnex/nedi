@@ -44,12 +44,12 @@ RUN tar -xzf /tmp/${PHPIPAM_VERSION}.tar.gz -C /var/www/html/ --strip-components
 
 # Use system environment variables into config.php
 RUN sed -i \ 
-	-e "s/\['host'\] = 'localhost'/\['host'\] = '$MYSQL_HOST'/" \ 
+	-e "s/\['host'\] = 'localhost'/\['host'\] = \"$MYSQL_HOST\"/" \ 
         -e "s/\['user'\] = 'phpipam'/\['user'\] = \"$MYSQL_USER\"/" \ 
-        -e "s/\['pass'\] = 'phpipamadmin'/\['pass'\] = "$MYSQL_PASSWORD"/" \ 
-        -e "s/\['name'\] = 'phpipam'/\['name'\] = $MYSQL_DB/" \ 
-        -e "s/\['port'\] = 3306/\['port'\] = $MYSQL_PORT/" \ 
-        -e "s/\['ssl'\] *= false/\['ssl'\] = $SSL/" \ 
+        -e "s/\['pass'\] = 'phpipamadmin'/\['pass'\] = \"$MYSQL_PASSWORD\"/" \ 
+        -e "s/\['name'\] = 'phpipam'/\['name'\] = \"$MYSQL_DB\"/" \ 
+        -e "s/\['port'\] = 3306/\['port'\] = \"$MYSQL_PORT\"/" \ 
+        -e "s/\['ssl'\] *= false/\['ssl'\] = \”$SSL\”/" \ 
 #        -e "s/\['ssl_key'\] *= \"\/path\/to\/cert.key\"/['ssl_key'\] = $SSL_KEY/" \ 
 #        -e "s/\['ssl_cert'\] *= \"\/path\/to\/cert.crt\"/['ssl_cert'\] = $SSL_CERT/" \ 
 #        -e "s/\['ssl_ca'\] *= \"\/path\/to\/ca.crt\"/['ssl_ca'\] = $SSL_CA/" \ 
