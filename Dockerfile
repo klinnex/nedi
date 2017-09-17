@@ -35,7 +35,7 @@ ENV PHPIPAM_SOURCE="https://github.com/phpipam/phpipam/archive/" \
     SSL_CIPHER="DHE-RSA-AES256-SHA:AES128-SHA"
 
 COPY php.ini /usr/local/etc/php/
-COPY config.php /var/www/html/
+
 
 # copy phpipam sources to web dir
 ADD ${PHPIPAM_SOURCE}/${PHPIPAM_VERSION}.tar.gz /tmp/
