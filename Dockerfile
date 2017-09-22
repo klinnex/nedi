@@ -18,8 +18,8 @@ RUN apt-get update && \
       php5-mysql\
       php5-snmp\
       php5-gd\
-      php5-mcrypt\
       rrdtool\
+      php5-mcrypt\
       libsocket6-perl &&\
       rm -rf /var/lib/apt/lists/*
       
