@@ -4,7 +4,6 @@ MAINTAINER Klinnex
 RUN apt-get update && \
       apt-get install -y\
       rrdtool\
-      libapache2-mod-php5\
       libnet-snmp-perl\
       libcrypt-rijndael-perl\
       libcrypt-hcesha-perl\
