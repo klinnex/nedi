@@ -35,9 +35,9 @@ RUN cpanm \
 #RUN cpanm Socket6
 #RUN cpanm LWP::UserAgent
 #RUN cpanm Net::DNS::Resolver
-#RUN cpanm Net::NTP
-#RUN cpanm IO::Tty
-#RUN cpanm libnet
+RUN cpanm Net::NTP
+RUN cpanm IO::Tty
+RUN cpanm libnet
 
 
 ADD     "$NEDI_SOURCE"/nedi-"$NEDI_VERSION".tgz /tmp/
