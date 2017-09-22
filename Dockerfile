@@ -22,5 +22,5 @@ RUN apt-get update && \
       
 ADD     https://www.nedi.ch/pub/nedi-1.5C.tgz /tmp/
 RUN ls /tmp/
-RUN tar -xvzf /tmp/nedi-1.5C.tgz -C /var/www/html/ 
+RUN unzip /tmp/nedi-1.5C.tgz -d /var/www/html/ 
 EXPOSE 80
