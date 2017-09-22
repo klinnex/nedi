@@ -29,10 +29,10 @@ RUN cpanm \
       Net::SNMP\
       Net::Telnet\
       Algorithm::Diff\
-      DBI\
       DBD::MySQL\
-      RRDs\
-      Socket6\
+      DBI\
+#     RRDs\
+#     Socket6\
       LWP::UserAgent\
       Net::DNS::Resolver\
       Net::NTP\
