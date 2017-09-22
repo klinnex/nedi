@@ -25,7 +25,20 @@ RUN apt-get update && \
 ENV NEDI_SOURCE http://www.nedi.ch/pub
 ENV NEDI_VERSION 1.5C
 
-RUN cpanm Net::SNMP
+RUN cpanm \
+      Net::SNMP\
+      Net::Telnet\
+      Algorithm::Diff\
+      DBI\
+      DBD::MySQL\
+      RRDs\
+      Socket6\
+      LWP::UserAgent\
+      Net::DNS::Resolver\
+      Net::NTP\
+      IO::Tty\
+      libnet
+
 
 ADD     "$NEDI_SOURCE"/nedi-"$NEDI_VERSION".tgz /tmp/
 RUN ls /tmp/
