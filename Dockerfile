@@ -29,7 +29,7 @@ RUN cpanm \
       Net::SNMP\
       Net::Telnet\
       Algorithm::Diff\
-      DBD::MySQL
+#RUN DBD::MySQL
 #RUN cpanm DBI
 #RUN cpanm RRDs
 #RUN cpanm Socket6
