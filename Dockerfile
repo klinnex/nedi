@@ -30,9 +30,9 @@ RUN cpanm \
       Net::Telnet\
       Algorithm::Diff
 #RUN DBD::MySQL
-#RUN cpanm DBI
-#RUN cpanm RRDs
-#RUN cpanm Socket6
+RUN cpanm DBI
+RUN cpanm RRDs
+RUN cpanm Socket6
 RUN cpanm LWP::UserAgent
 RUN cpanm Net::DNS::Resolver
 RUN cpanm Net::NTP
