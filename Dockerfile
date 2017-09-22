@@ -21,5 +21,5 @@ RUN apt-get update && \
       --no-install-recommends && rm -rf /var/lib/apt/lists/*
       
 ADD     https://www.nedi.ch/pub/nedi-1.5C.tgz /tmp/
-RUN tar -xzf /tmp/nedi-1.5C.tgz -C /var/www/html/ --strip-components=1
+RUN tar -xvzf /tmp/nedi-1.5C.tgz -C /var/www/html/ --strip-components=1
 EXPOSE 80
