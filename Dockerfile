@@ -4,6 +4,6 @@ MAINTAINER Klinnex
 RUN apt-get update && \
       apt-get install -y\
       rrdtool\
-      rm -rf /var/lib/apt/lists/*
+      && rm -rf /var/lib/apt/lists/*
       
 EXPOSE 80
