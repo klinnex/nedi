@@ -18,9 +18,15 @@ RUN apt-get update && \
       php5-gd\
       php5-mcrypt\
       libsocket6-perl\
+      cpanminus\
       --no-install-recommends && rm -rf /var/lib/apt/lists/*
+
+
 ENV NEDI_SOURCE http://www.nedi.ch/pub
 ENV NEDI_VERSION 1.5C
+
+RUN cpanm Net::SNMP
+
 ADD     "$NEDI_SOURCE"/nedi-"$NEDI_VERSION".tgz /tmp/
 RUN ls /tmp/
 RUN tar -xvf /tmp/nedi-"$NEDI_VERSION".tgz --directory /var/www/html/
