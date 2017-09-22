@@ -28,7 +28,7 @@ ENV NEDI_VERSION 1.5C
 RUN cpanm \
       Net::SNMP\
       Net::Telnet\
-      Algorithm::Diff\
+      Algorithm::Diff
 #RUN DBD::MySQL
 #RUN cpanm DBI
 #RUN cpanm RRDs
