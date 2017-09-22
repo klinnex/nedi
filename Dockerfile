@@ -3,9 +3,7 @@ MAINTAINER Klinnex
 
 RUN apt-get update && \
       apt-get install -y\
-      apache2\
       libapache2-mod-php5\
-      mysql-server\
       libnet-snmp-perl\
       libcrypt-rijndael-perl\
       libcrypt-hcesha-perl\
