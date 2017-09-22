@@ -21,7 +21,7 @@ RUN apt-get update && \
       --no-install-recommends && rm -rf /var/lib/apt/lists/*
 ENV NEDI_SOURCE="http://www.nedi.ch/pub"\
     NEDI_VERSION="1.5C"\
-ADD     ${NEDI_SOURCE}/nedi-${NEDI_VERSION}.tgz /tmp/
+ADD     $NEDI_SOURCE/nedi-$NEDI_VERSION.tgz /tmp/
 RUN ls /tmp/
 RUN tar -xvf /tmp/nedi-${NEDI_VERSION}.tgz --directory /var/www/html/
 EXPOSE 80
