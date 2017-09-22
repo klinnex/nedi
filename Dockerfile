@@ -19,7 +19,7 @@ RUN apt-get update && \
       php5-mcrypt\
       libsocket6-perl\
       --no-install-recommends && rm -rf /var/lib/apt/lists/*
-ENV NEDI_SOURCE=http://www.nedi.ch/pub/"\
+ENV NEDI_SOURCE=http://www.nedi.ch/pub"\
     NEDI_VERSION="1.5C"\
 ADD     ${NEDI_SOURCE}/nedi-${NEDI_VERSION}.tgz /tmp/
 RUN ls /tmp/
