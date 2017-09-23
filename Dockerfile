@@ -19,7 +19,7 @@ RUN apt-get update && \
       php5-mcrypt\
       libsocket6-perl\
       cpanminus\
-      --no-install-recommends && rm -rf /var/lib/apt/lists/*
+      rm -rf /var/lib/apt/lists/*
       
 # Configure apache and required PHP modules 
 RUN docker-php-ext-configure mysqli --with-mysqli=mysqlnd && \
