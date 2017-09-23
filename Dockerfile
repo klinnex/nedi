@@ -42,8 +42,8 @@ RUN cpanm IO::Tty
 #RUN cpanm libnet
 
 ADD     "$NEDI_SOURCE"/nedi-"$NEDI_VERSION".tgz /tmp/
-RUN ls /tmp/
-RUN tar -xvf /tmp/nedi-"$NEDI_VERSION".tgz --directory /opt/
+RUN mkdir /opt/nedi
+RUN tar -xvf /tmp/nedi-"$NEDI_VERSION".tgz --directory /opt/nedi
 RUN chown -R www-data:www-data /opt/nedi
 RUN chmod 775 /opt/nedi/html/log/
 RUN ln -s /opt/nedi/html/ /var/www/
