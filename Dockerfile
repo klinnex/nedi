@@ -53,8 +53,8 @@ RUN cpanm Net::NTP
 RUN cpanm IO::Tty
 #RUN cpanm libnet
 
-RUN mkdir /var/nedi
 ADD     "$NEDI_SOURCE"/nedi-"$NEDI_VERSION".tgz /tmp/
 RUN ls /tmp/
-RUN tar -xvf /tmp/nedi-"$NEDI_VERSION".tgz --directory /var/nedi/
+RUN tar -xvf /tmp/nedi-"$NEDI_VERSION".tgz --directory /opt/
+RUN ls /opt/
 EXPOSE 443
