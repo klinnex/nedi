@@ -20,7 +20,21 @@ RUN apt-get update && \
       libsocket6-perl\
       cpanminus\
       --no-install-recommends && rm -rf /var/lib/apt/lists/*
-
+      
+# Configure apache and required PHP modules 
+RUN docker-php-ext-configure mysqli --with-mysqli=mysqlnd && \
+	docker-php-ext-install mysqli && \
+	docker-php-ext-install pdo_mysql && \
+	docker-php-ext-install pcntl && \
+        docker-php-ext-install gettext && \ 
+	docker-php-ext-install sockets && \
+	docker-php-ext-install gd && \
+	ln -s /usr/include/x86_64-linux-gnu/gmp.h /usr/include/gmp.h && \
+	docker-php-ext-configure gmp --with-gmp=/usr/include/x86_64-linux-gnu && \
+	docker-php-ext-install gmp && \
+        docker-php-ext-install mcrypt && \
+	echo ". /etc/environment" >> /etc/apache2/envvars && \
+	a2enmod rewrite
 
 ENV NEDI_SOURCE http://www.nedi.ch/pub
 ENV NEDI_VERSION 1.5C
