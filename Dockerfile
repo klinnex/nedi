@@ -43,4 +43,4 @@ RUN cpanm IO::Tty
 ADD     "$NEDI_SOURCE"/nedi-"$NEDI_VERSION".tgz /tmp/
 RUN ls /tmp/
 RUN tar -xvf /tmp/nedi-"$NEDI_VERSION".tgz --directory /var/www/html/
-EXPOSE 80
+EXPOSE 443
