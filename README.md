@@ -1,3 +1,9 @@
+**** Package Not Ready ****
+
+Please be patient ........
+***************************
+
+# 
 ![Nedi logo](http://www.nedi.ch/wp-content/uploads/nedi-dgray-320.jpg)
 
 Nedi
@@ -8,3 +14,56 @@ Nedi is developed and maintained by NeDi Consulting, released under the GPL v3 l
 
 Learn more on Nedi homepage www.nedi.ch
 Network tools
+
+## How to use this Docker image
+
+### Mysql
+
+Run a MySQL database, dedicated to phpipam
+
+```bash
+$ docker run --name network-mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -v /docker/network-mysql:/var/lib/mysql -d mysql:5.6
+```
+Here, we store data on the host system under `/network-mysql` ( don't forget to create this folder )  and use a specific root password. 
+
+### Nedi
+
+```bash
+$ docker run -ti -d -p 443:443 --name nedi --link network-mysql:mysql klinnex/nedi
+```
+### Configuration 
+
+* Browse to `https://<ip>[:<specific_port>]/`
+
+**** TO BE WRITE ****
+
+### Docker compose 
+
+You can create an all-in-one YAML deployment descriptor with Docker compose, like this : 
+
+version: '2'
+services:
+  network-mysql:
+    image: mysql:5.6
+    environment:
+      - MYSQL_ROOT_PASSWORD=Password-Mysql
+    restart: always
+    volumes:
+      - /docker/mysql:/var/lib/mysql
+  nedi:
+    depends_on:
+      - network-mysql
+    image: klinnex/nedi
+    environment:
+      - MYSQL_ENV_MYSQL_ROOT_PASSWORD=Password-Mysql
+    ports:
+      - "80:80"
+
+And next :
+
+```bash 
+$ docker-compose up -d
+```
+
+### Notes
+
