@@ -46,8 +46,7 @@ RUN mkdir /opt/nedi
 RUN tar -xvf /tmp/nedi-"$NEDI_VERSION".tgz --directory /opt/nedi
 RUN chown -R www-data:www-data /opt/nedi
 RUN chmod 775 /opt/nedi/html/log/
-RUN rm -rf /var/www/html
-RUN ln -s /opt/nedi/html /var/www/
+RUN rm -rf /var/www/html && ln -s /opt/nedi/html/ /var/www/
 RUN ln -s /opt/nedi/nedi.conf /etc/nedi.conf
 RUN ls /opt/
 EXPOSE 443
