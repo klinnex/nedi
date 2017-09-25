@@ -48,5 +48,6 @@ RUN chown -R www-data:www-data /opt/nedi
 RUN chmod 775 /opt/nedi/html/log/
 RUN rm -rf /var/www/html
 RUN ln -s /opt/nedi/html/ /var/www/
+RUN ln -s /opt/nedi/nedi.conf /etc/nedi.conf
 RUN ls /opt/
 EXPOSE 443
