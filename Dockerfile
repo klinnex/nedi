@@ -50,4 +50,4 @@ RUN rm -rf /var/www/html &&\
       ln -s /opt/nedi/html/ /var/www/
 RUN ln -s /opt/nedi/nedi.conf /etc/nedi.conf
 RUN ls /opt/
-EXPOSE 443
+EXPOSE 443 514
