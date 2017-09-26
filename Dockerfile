@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM debian:jessie
 MAINTAINER Klinnex
 
 RUN apt-get update && apt-get -y -q install\
