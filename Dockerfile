@@ -42,12 +42,10 @@ RUN cpanm IO::Tty
 #RUN cpanm libnet
 
 ADD     "$NEDI_SOURCE"/nedi-"$NEDI_VERSION".tgz /tmp/
-RUN mkdir /opt/nedi &&\
-      tar -xvf /tmp/nedi-"$NEDI_VERSION".tgz --directory /opt/nedi &&\
-      chown -R www-data:www-data /opt/nedi &&\
-      chmod 775 /opt/nedi/html/log/ &&\
-      rm -rf /var/www/html &&\
-      ln -s /opt/nedi/html/ /var/www/
-RUN ln -s /opt/nedi/nedi.conf /etc/nedi.conf
-RUN ls /opt/
+RUN mkdir /var/nedi &&\
+      tar -xvf /tmp/nedi-"$NEDI_VERSION".tgz --directory /var/nedi &&\
+      chown -R www-data:www-data /var/nedi &&\
+      chmod 775 /var/nedi/html/log/ && \
+      ln -s /var/nedi/nedi.conf /etc/nedi.conf
+
 EXPOSE 443 514
