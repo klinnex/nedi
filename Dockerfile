@@ -29,7 +29,7 @@ RUN apt-get update && \
       libfreetype6-dev\
       libjpeg-dev\
       libpng-dev\
-      libldap2-dev
+      libldap2-dev\
       libnet-telnet-cisco-perl\
       cpanminus &&\
       rm -rf /var/lib/apt/lists/*
