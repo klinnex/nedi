@@ -30,15 +30,15 @@ ENV NEDI_VERSION 1.5C
 RUN cpanm \
       Net::SNMP\
       Net::Telnet\
-      Algorithm::Diff
+      Algorithm::Diff\
 #RUN DBD::MySQL
-RUN cpanm DBI
+      cpanm DBI\
 #RUN cpanm RRDs
-RUN cpanm Socket6
-RUN cpanm LWP::UserAgent
-RUN cpanm Net::DNS::Resolver
-RUN cpanm Net::NTP
-RUN cpanm IO::Tty
+      cpanm Socket6\
+      cpanm LWP::UserAgent\
+      cpanm Net::DNS::Resolver\
+      cpanm Net::NTP\
+      cpanm IO::Tty
 #RUN cpanm libnet
 
 ADD     "$NEDI_SOURCE"/nedi-"$NEDI_VERSION".tgz /tmp/
