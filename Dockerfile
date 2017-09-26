@@ -19,8 +19,8 @@ RUN apt-get update && \
       php5-mcrypt\
       libsocket6-perl\
       libnet-telnet-cisco-perl\
-      cpanminus
-RUN   rm -rf /var/lib/apt/lists/*
+      cpanminus &&\
+      rm -rf /var/lib/apt/lists/*
       
 # Configure apache and required PHP modules 
 
