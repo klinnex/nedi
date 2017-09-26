@@ -58,7 +58,7 @@ RUN docker-php-ext-configure mysqli --with-mysqli=mysqlnd && \
 COPY php.ini /usr/local/etc/php/
 
 ENV NEDI_SOURCE http://www.nedi.ch/pub
-ENV NEDI_VERSION 1.5C
+ENV NEDI_VERSION 1.6C
 
 RUN cpanm \
       Net::SNMP\
