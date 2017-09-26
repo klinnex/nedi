@@ -47,9 +47,9 @@ RUN mkdir /var/nedi &&\
       tar -xvf /tmp/nedi-"$NEDI_VERSION".tgz --directory /var/nedi &&\
       chown -R www-data:www-data /var/nedi &&\
       chmod 775 /var/nedi/html/log/ &&\
-      ln -s /var/nedi/nedi.conf /etc/nedi.conf &&\
-      sed -i 's!/var/www/html!/var/nedi/html!g' /etc/apache2/sites-enabled/000-default.conf &&\
-      sed -i -e "s/^upload_max_filesize.*/upload_max_filesize = 2G/" /etc/php5/apache2/php.ini && \
-      sed -i -e "s/^post_max_size.*/post_max_size = 1G/" /etc/php5/apache2/php.ini
+      ln -s /var/nedi/nedi.conf /etc/nedi.conf
+ #     sed -i 's!/var/www/html!/var/nedi/html!g' /etc/apache2/sites-enabled/000-default.conf &&\
+ #     sed -i -e "s/^upload_max_filesize.*/upload_max_filesize = 2G/" /etc/php5/apache2/php.ini && \
+ #     sed -i -e "s/^post_max_size.*/post_max_size = 1G/" /etc/php5/apache2/php.ini
 
 EXPOSE 443
