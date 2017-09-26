@@ -19,7 +19,21 @@ RUN apt-get update && \
     libfreetype6-dev\
     libjpeg-dev\
     libpng-dev\
-    libldap2-dev && \
+    libldap2-dev\
+    libnet-snmp-perl\
+    libcrypt-hcesha-perl\
+    libcrypt-des-perl\
+    libdigest-hmac-perl\
+    libio-pty-perl\
+    libnet-telnet-perl\
+    libalgorithm-diff-perl\
+    librrds-perl\
+    php5-snmp\
+    rrdtool\
+    libsocket6-perl\
+    libweb-simple-perl\
+    libnet-ntp-perl\
+    libnet-dns-perl
     rm -rf /var/lib/apt/lists/*
 
 # Configure apache and required PHP modules
