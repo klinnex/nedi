@@ -33,7 +33,7 @@ RUN apt-get update && \
     libsocket6-perl\
     libweb-simple-perl\
     libnet-ntp-perl\
-    libnet-dns-perl
+    libnet-dns-perl\
     rm -rf /var/lib/apt/lists/*
 
 # Configure apache and required PHP modules
