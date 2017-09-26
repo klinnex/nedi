@@ -33,13 +33,13 @@ RUN cpanm \
       Net::Telnet\
       Algorithm::Diff\
 #RUN DBD::MySQL
-      cpanm DBI\
+      DBI\
 #RUN cpanm RRDs
-      cpanm Socket6\
-      cpanm LWP::UserAgent\
-      cpanm Net::DNS::Resolver\
-      cpanm Net::NTP\
-      cpanm IO::Tty
+      Socket6\
+      LWP::UserAgent\
+      Net::DNS::Resolver\
+      Net::NTP\
+      IO::Tty
 #RUN cpanm libnet
 
 ADD     "$NEDI_SOURCE"/nedi-"$NEDI_VERSION".tgz /tmp/
