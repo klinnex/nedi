@@ -42,4 +42,5 @@ RUN apt-get update && apt-get -y -q install\
     echo ". /etc/environment" >> /etc/apache2/envvars && \
     a2enmod rewrite
     
-    EXPOSE 443
+    EXPOSE 443\
+            514
