@@ -33,6 +33,7 @@ RUN apt-get update && \
     libsocket6-perl\
     libweb-simple-perl\
     libnet-ntp-perl\
+    cpanminus\
     libnet-dns-perl &&\
     rm -rf /var/lib/apt/lists/*
 
