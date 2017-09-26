@@ -14,16 +14,46 @@ RUN apt-get update && \
       libnet-telnet-perl\
       libalgorithm-diff-perl\
       librrds-perl\
+      php-pear\
+      php5-curl\
       php5-mysql\
-      php5-snmp\
-      php5-gd\
+      php5-json\
+      php5-gmp\
       php5-mcrypt\
+      php5-ldap\
+      php5-gd\
+      php-net-socket\
       libsocket6-perl\
+      libmcrypt-dev\
+      libpng12-dev\
+      libfreetype6-dev\
+      libjpeg-dev\
+      libpng-dev\
+      libldap2-dev
       libnet-telnet-cisco-perl\
       cpanminus &&\
       rm -rf /var/lib/apt/lists/*
       
 # Configure apache and required PHP modules 
+RUN docker-php-ext-configure mysqli --with-mysqli=mysqlnd && \
+    docker-php-ext-install mysqli && \
+    docker-php-ext-configure gd --enable-gd-native-ttf --with-freetype-dir=/usr/include/freetype2 --with-png-dir=/usr/include --with-jpeg-dir=/usr/include && \
+    docker-php-ext-install gd && \
+    docker-php-ext-install sockets && \
+    docker-php-ext-install pdo_mysql && \
+    docker-php-ext-install gettext && \
+    ln -s /usr/include/x86_64-linux-gnu/gmp.h /usr/include/gmp.h && \
+    docker-php-ext-configure gmp --with-gmp=/usr/include/x86_64-linux-gnu && \
+    docker-php-ext-install gmp && \
+    docker-php-ext-install mcrypt && \
+    docker-php-ext-install pcntl && \
+    docker-php-ext-configure ldap --with-libdir=lib/x86_64-linux-gnu && \
+    docker-php-ext-install ldap && \
+    echo ". /etc/environment" >> /etc/apache2/envvars && \
+    a2enmod rewrite
+    
+    
+COPY php.ini /usr/local/etc/php/
 
 ENV NEDI_SOURCE http://www.nedi.ch/pub
 ENV NEDI_VERSION 1.5C
@@ -41,24 +71,6 @@ RUN cpanm \
       Net::NTP\
       IO::Tty
 #RUN cpanm libnet
-RUN docker-php-ext-configure mysqli --with-mysqli=mysqlnd && \
-    docker-php-ext-install mysqli && \
-    docker-php-ext-configure gd --enable-gd-native-ttf --with-freetype-dir=/usr/include/freetype2 --with-png-dir=/usr/include --with-jpeg-dir=/usr/include && \
-    docker-php-ext-install gd && \
-    docker-php-ext-install sockets && \
-    docker-php-ext-install pdo_mysql && \
-    docker-php-ext-install gettext && \
-    ln -s /usr/include/x86_64-linux-gnu/gmp.h /usr/include/gmp.h && \
-    docker-php-ext-configure gmp --with-gmp=/usr/include/x86_64-linux-gnu && \
-    docker-php-ext-install gmp && \
-    docker-php-ext-install mcrypt && \
-    docker-php-ext-install pcntl && \
-    docker-php-ext-configure ldap --with-libdir=lib/x86_64-linux-gnu && \
-    docker-php-ext-install ldap && \
-    echo ". /etc/environment" >> /etc/apache2/envvars && \
-    a2enmod rewrite
-
-COPY php.ini /usr/local/etc/php/
 
 
 ADD     "$NEDI_SOURCE"/nedi-"$NEDI_VERSION".tgz /tmp/
