@@ -12,7 +12,7 @@ NeDi unfolds its full potential with CDP, FDP and/or LLDP capable devices in the
 
 Nedi is developed and maintained by NeDi Consulting, released under the GPL v3 license
 
-Learn more on Nedi homepage www.nedi.ch
+
 Network tools
 
 NeDi discovers your network devices and tracks connected end-nodes. It contains many additional features for managing enterprise networks:
@@ -24,6 +24,8 @@ NeDi discovers your network devices and tracks connected end-nodes. It contains 
 *    Network maps for documentation and monitoring dashboards
 *    Detecti rouge access points and find missing devices
 *    Extensive reporting ranging from devices, modules, interfaces all the way to assets and nodes 
+
+Learn more on Nedi homepage www.nedi.ch
 
 
 ## How to use this Docker image
