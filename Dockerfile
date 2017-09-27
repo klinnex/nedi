@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM centos:centos7
 MAINTAINER Klinnex
 
 ENV NEDI_SOURCE http://www.nedi.ch/pub
@@ -6,26 +6,21 @@ ENV NEDI_VERSION 1.5C
 ADD "$NEDI_SOURCE"/nedi-"$NEDI_VERSION".tgz /tmp/
 
 #Install of dependency
-RUN apt-get update && \
-    apt-get install -y\
-    apache2\
-    libapache2-mod-php\
-    mysql-server\
-    libnet-snmp-perl\
-    libcrypt-rijndael-perl\
-    libcrypt-hcesha-perl\
-    libcrypt-des-perl\
-    libdigest-hmac-perl\
-    libio-pty-perl\
-    libnet-telnet-perl\
-    libalgorithm-diff-perl\
-    librrds-perl\
+RUN yum update &&\
+    install epel-release\
+    httpd\
+    mod_ssl\
+    php\
     php-mysql\
+    mysql-server\
     php-snmp\
     php-gd\
-    php-mcrypt\
-    rrdtool\
-    libsocket6-perl
+    php-process\
+    patch\
+    rrdtool-perl\
+    net-snmp\
+    rrdtool
+    
 #    sudo rm -rf /var/lib/apt/lists/* &&\
 #    sudo tar -xvf /tmp/nedi-"$NEDI_VERSION".tgz --directory /opt/nedi &&\
 #    sudo mv nedi /opt/ &&\
