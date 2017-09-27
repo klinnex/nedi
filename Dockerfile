@@ -47,19 +47,19 @@ COPY php.ini /usr/local/etc/php/
  ENV NEDI_SOURCE http://www.nedi.ch/pub
  ENV NEDI_VERSION 1.6C
 # 
-# RUN cpanm \
-#       Net::SNMP\
-#       Net::Telnet\
-#       Algorithm::Diff\
-# #RUN DBD::MySQL
-#       DBI\
-# #RUN cpanm RRDs
-#       Socket6\
-#       LWP::UserAgent\
-#       Net::DNS::Resolver\
-#       Net::NTP\
-#       IO::Tty
-# #RUN cpanm libnet
+ RUN cpanm \
+       Net::SNMP\
+       Net::Telnet\
+       Algorithm::Diff\
+ #RUN DBD::MySQL
+       DBI\
+ #RUN cpanm RRDs
+       Socket6\
+       LWP::UserAgent\
+       Net::DNS::Resolver\
+       Net::NTP\
+       IO::Tty
+ #RUN cpanm libnet
 # 
 # 
 # ADD     "$NEDI_SOURCE"/nedi-"$NEDI_VERSION".tgz /tmp/
