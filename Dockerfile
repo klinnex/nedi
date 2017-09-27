@@ -17,6 +17,7 @@ RUN apt-get update &&\
     librrds-perl\
     rrdtool\
     libsocket6-perl \
+    cpanminus\
     && rm -rf /var/lib/apt/lists/*
 
 
@@ -43,8 +44,8 @@ RUN docker-php-ext-configure mysqli --with-mysqli=mysqlnd && \
 # 
 COPY php.ini /usr/local/etc/php/
 # 
-# ENV NEDI_SOURCE http://www.nedi.ch/pub
-# ENV NEDI_VERSION 1.6C
+ ENV NEDI_SOURCE http://www.nedi.ch/pub
+ ENV NEDI_VERSION 1.6C
 # 
 # RUN cpanm \
 #       Net::SNMP\
