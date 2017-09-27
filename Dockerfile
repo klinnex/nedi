@@ -15,5 +15,6 @@ RUN sudo apt-get update && \
     libalgorithm-diff-perl\
     rrdtool\
     librrds-perl&&\
-    rm -rf /var/lib/apt/lists/*
+    sudo rm -rf /var/lib/apt/lists/*
 
+EXPOSE 80 443
