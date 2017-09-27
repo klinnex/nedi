@@ -24,7 +24,7 @@ RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-av
     sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf
 
  # Configure apache and required PHP modules
-RUN docker-php-ext-configure mysqli --with-mysqli=mysqlnd && \
+RUN docker-php-ext-configure mysqli && \
     docker-php-ext-install mysqli && \
     docker-php-ext-configure gd --enable-gd-native-ttf --with-freetype-dir=/usr/include/freetype2 --with-png-dir=/usr/include --with-jpeg-dir=/usr/include && \
     docker-php-ext-install gd && \
