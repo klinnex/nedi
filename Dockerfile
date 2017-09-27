@@ -28,7 +28,20 @@ RUN yum update &&\
     perl-Socket6\
     perl-Test-Exception\ 
     perl-DBD-Pg.x86_64\
-    perl-Module-Build
+    perl-Module-Build\
+    perl-Net-SNMP\
+    perl-IO-Pty-Easy.noarch\
+    
+    ADD http://search.cpan.org/CPAN/authors/id/D/DM/DMAKI/Class-DBI-Pg-0.09.tar.gz
+    
+    RUN tar xzvf Class-DBI-Pg-0.09.tar.gz&&\
+    cd Class-DBI-Pg-0.09/ &&\
+    perl Makefile.PL &&\
+    perl Build.PL &&\
+    perl Build installdeps &&\ # Installs many dependencies
+    perl Build test &&\
+    perl Build install
+    
     
 #    sudo rm -rf /var/lib/apt/lists/* &&\
 #    sudo tar -xvf /tmp/nedi-"$NEDI_VERSION".tgz --directory /opt/nedi &&\
