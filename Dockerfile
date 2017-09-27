@@ -23,6 +23,7 @@ RUN yum update &&\
     rrdtool-perl\
     postgresql.x86_64\
     php-pgsql.x86_64\
+    perl\
     perl-Algorithm-Diff\
     perl-Net-Telnet\
     perl-Socket6\
