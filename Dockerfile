@@ -6,8 +6,8 @@ ENV NEDI_VERSION 1.5C
 ADD "$NEDI_SOURCE"/nedi-"$NEDI_VERSION".tgz /tmp/
 
 #Install of dependency
-RUN sudo apt-get update && \
-    sudo apt-get install -y\
+RUN apt-get update && \
+    apt-get install -y\
     apache2\
     libapache2-mod-php5\
     mysql-server\
@@ -18,10 +18,10 @@ RUN sudo apt-get update && \
     php5-gd\
     libalgorithm-diff-perl\
     rrdtool\
-    librrds-perl&&\
-    sudo rm -rf /var/lib/apt/lists/* &&\
-    sudo tar -xvf /tmp/nedi-"$NEDI_VERSION".tgz --directory /opt/nedi &&\
-    sudo mv nedi /opt/ &&\
-    sudo chown -R www-data:www-data /opt/nedi &&\
-    sudo chmod 775 /opt/nedi/html/log/ \
+    librrds-perl
+#    sudo rm -rf /var/lib/apt/lists/* &&\
+#    sudo tar -xvf /tmp/nedi-"$NEDI_VERSION".tgz --directory /opt/nedi &&\
+#    sudo mv nedi /opt/ &&\
+#    sudo chown -R www-data:www-data /opt/nedi &&\
+#    sudo chmod 775 /opt/nedi/html/log/ \
 EXPOSE 80 443
