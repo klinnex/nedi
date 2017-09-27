@@ -12,6 +12,7 @@ RUN apt-get update &&\
     libcrypt-des-perl\
     libdigest-hmac-perl\
     libio-pty-perl\
+    libmcrypt\
     libnet-telnet-perl\
     libalgorithm-diff-perl\
     librrds-perl\
