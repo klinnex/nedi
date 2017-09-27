@@ -19,7 +19,7 @@ RUN apt-get update &&\
     php-gd\
     php-mcrypt\
     rrdtool\
-    libsocket6-perl
+    libsocket6-perl &&\
     rm -rf /var/lib/apt/lists/*
 
  # Configure apache and required PHP modules
