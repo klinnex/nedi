@@ -1,4 +1,4 @@
-ROM php:7.1-apache
+FROM php:7.1-apache
 MAINTAINER Klinnex
 
 #Install of dependency
