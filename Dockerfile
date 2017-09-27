@@ -5,7 +5,7 @@ ENV APACHE_DOCUMENT_ROOT /var/nedi
 #Install of dependency
 RUN apt-get update &&\
     apt-get install -y\
-    mysql-server\
+    #mysql-server\
     libnet-snmp-perl\
     libcrypt-rijndael-perl\
     libcrypt-hcesha-perl\
