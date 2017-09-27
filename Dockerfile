@@ -1,53 +1,75 @@
-FROM centos:centos7
+ROM php:7.1-apache
 MAINTAINER Klinnex
 
-ENV NEDI_SOURCE http://www.nedi.ch/pub
-ENV NEDI_VERSION 1.5C
-ADD "$NEDI_SOURCE"/nedi-"$NEDI_VERSION".tgz /tmp/
-
 #Install of dependency
-RUN yum update &&\
-    yum install -y epel-release\
-    httpd\
-    mod_ssl\
-    php\
+RUN apt-get update &&\
+    apt-get install -y\
+    mysql-server\
+    libnet-snmp-perl\
+    libcrypt-rijndael-perl\
+    libcrypt-hcesha-perl\
+    libcrypt-des-perl\
+    libdigest-hmac-perl\
+    libio-pty-perl\
+    libnet-telnet-perl\
+    libalgorithm-diff-perl\
+    librrds-perl\
     php-mysql\
-    mariadb-server\
-    mariadb-devel\
     php-snmp\
     php-gd\
-    php-process\
-    patch\
-    net-snmp\
+    php-mcrypt\
     rrdtool\
-    rrdtool-perl\
-    postgresql.x86_64\
-    php-pgsql.x86_64\
-    perl\
-    perl-Algorithm-Diff\
-    perl-Net-Telnet\
-    perl-Socket6\
-    perl-Test-Exception\ 
-    perl-DBD-Pg.x86_64\
-    perl-Module-Build\
-    perl-Net-SNMP\
-    perl-IO-Pty-Easy.noarch
-    
-    
-    ADD http://search.cpan.org/CPAN/authors/id/D/DM/DMAKI/Class-DBI-Pg-0.09.tar.gz
-    
-    RUN tar xzvf Class-DBI-Pg-0.09.tar.gz&&\
-    cd Class-DBI-Pg-0.09/ &&\
-    perl Makefile.PL &&\
-    perl Build.PL &&\
-    perl Build installdeps &&\ # Installs many dependencies
-    perl Build test &&\
-    perl Build install
-    
-    
-#    sudo rm -rf /var/lib/apt/lists/* &&\
-#    sudo tar -xvf /tmp/nedi-"$NEDI_VERSION".tgz --directory /opt/nedi &&\
-#    sudo mv nedi /opt/ &&\
-#    sudo chown -R www-data:www-data /opt/nedi &&\
-#    sudo chmod 775 /opt/nedi/html/log/ \
-EXPOSE 80 443
+    libsocket6-perl
+    rm -rf /var/lib/apt/lists/*
+
+# # Configure apache and required PHP modules
+# RUN docker-php-ext-configure mysqli --with-mysqli=mysqlnd && \
+#     docker-php-ext-install mysqli && \
+#     docker-php-ext-configure gd --enable-gd-native-ttf --with-freetype-dir=/usr/include/freetype2 --with-png-dir=/usr/include --with-jpeg-dir=/usr/include && \
+#     docker-php-ext-install gd && \
+#     docker-php-ext-install sockets && \
+#     docker-php-ext-install pdo_mysql && \
+#     docker-php-ext-install gettext && \
+#     ln -s /usr/include/x86_64-linux-gnu/gmp.h /usr/include/gmp.h && \
+#     docker-php-ext-configure gmp --with-gmp=/usr/include/x86_64-linux-gnu && \
+#     docker-php-ext-install gmp && \
+#     docker-php-ext-install mcrypt && \
+#     docker-php-ext-install pcntl && \
+#     docker-php-ext-configure ldap --with-libdir=lib/x86_64-linux-gnu && \
+#     docker-php-ext-install ldap && \
+#     echo ". /etc/environment" >> /etc/apache2/envvars && \
+#     a2enmod rewrite
+# 
+# COPY php.ini /usr/local/etc/php/
+# 
+# ENV NEDI_SOURCE http://www.nedi.ch/pub
+# ENV NEDI_VERSION 1.6C
+# 
+# RUN cpanm \
+#       Net::SNMP\
+#       Net::Telnet\
+#       Algorithm::Diff\
+# #RUN DBD::MySQL
+#       DBI\
+# #RUN cpanm RRDs
+#       Socket6\
+#       LWP::UserAgent\
+#       Net::DNS::Resolver\
+#       Net::NTP\
+#       IO::Tty
+# #RUN cpanm libnet
+# 
+# 
+# ADD     "$NEDI_SOURCE"/nedi-"$NEDI_VERSION".tgz /tmp/
+# RUN mkdir /var/nedi &&\
+#       tar -xvf /tmp/nedi-"$NEDI_VERSION".tgz --directory /var/nedi &&\
+#       chown -R www-data:www-data /var/nedi &&\
+#       chmod 775 /var/nedi/html/log/ &&\
+#       ln -s /var/nedi/nedi.conf /etc/nedi.conf &&\
+#      sed -i 's!/var/www/html!/var/nedi/html!g' /etc/apache2/sites-enabled/000-default.conf
+# RUN ls /usr/local/etc/php/
+#      #sed -i -e "s/^upload_max_filesize.*/upload_max_filesize = 2G/" /etc/php5/apache2/php.ini 
+#  #     sed -i -e "s/^post_max_size.*/post_max_size = 1G/" /etc/php5/apache2/php.ini
+# 
+# EXPOSE 443 80
+# 
