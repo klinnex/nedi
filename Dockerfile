@@ -11,17 +11,17 @@ RUN apt-get update &&\
     libcrypt-hcesha-perl\
     libcrypt-des-perl\
     libdigest-hmac-perl\
-    libio-pty-perl&&\
-   # libnet-telnet-perl\
-   # libalgorithm-diff-perl\
-   # librrds-perl\
+    libio-pty-perl\
+    libnet-telnet-perl\
+    libalgorithm-diff-perl\
+    librrds-perl\
    # mysqli\
-   # php-snmp\
-   # php-gd\
-   # php-mcrypt\
+    php-snmp\
+    php-gd\
+    php-mcrypt\
    # rrdtool\
    # libsocket6-perl &&\
-    rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/*
 
 
 #RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf &&\
