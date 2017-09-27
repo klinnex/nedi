@@ -20,7 +20,7 @@ RUN apt-get update &&\
    # php-mcrypt\
    # rrdtool\
    # libsocket6-perl &&\
-    rm -rf /var/lib/apt/lists/*
+   # rm -rf /var/lib/apt/lists/*
 
  # Configure apache and required PHP modules
 # RUN docker-php-ext-configure mysqli --with-mysqli=mysqlnd && \
