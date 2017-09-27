@@ -7,19 +7,28 @@ ADD "$NEDI_SOURCE"/nedi-"$NEDI_VERSION".tgz /tmp/
 
 #Install of dependency
 RUN yum update &&\
-    install epel-release\
+    yum install -y epel-release\
     httpd\
     mod_ssl\
     php\
     php-mysql\
-    mysql-server\
+    mariadb-server\
+    mariadb-devel\
     php-snmp\
     php-gd\
     php-process\
     patch\
-    rrdtool-perl\
     net-snmp\
-    rrdtool
+    rrdtool\
+    rrdtool-perl\
+    postgresql.x86_64\
+    php-pgsql.x86_64\
+    perl-Algorithm-Diff\
+    perl-Net-Telnet\
+    perl-Socket6\
+    perl-Test-Exception\ 
+    perl-DBD-Pg.x86_64\
+    perl-Module-Build
     
 #    sudo rm -rf /var/lib/apt/lists/* &&\
 #    sudo tar -xvf /tmp/nedi-"$NEDI_VERSION".tgz --directory /opt/nedi &&\
