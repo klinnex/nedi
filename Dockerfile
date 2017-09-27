@@ -22,7 +22,7 @@ RUN apt-get update &&\
     libsocket6-perl
     rm -rf /var/lib/apt/lists/*
 
-# # Configure apache and required PHP modules
+ # Configure apache and required PHP modules
 # RUN docker-php-ext-configure mysqli --with-mysqli=mysqlnd && \
 #     docker-php-ext-install mysqli && \
 #     docker-php-ext-configure gd --enable-gd-native-ttf --with-freetype-dir=/usr/include/freetype2 --with-png-dir=/usr/include --with-jpeg-dir=/usr/include && \
