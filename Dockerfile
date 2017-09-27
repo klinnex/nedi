@@ -15,10 +15,10 @@ RUN apt-get update &&\
     libnet-telnet-perl\
     libalgorithm-diff-perl\
     librrds-perl\
-   # mysqli\
-    php7.0-snmp\
-    php7.0-gd\
-    php7.0-mcrypt\
+    mysqli\
+   # php7.0-snmp\
+   # php7.0-gd\
+   # php7.0-mcrypt\
    # rrdtool\
    # libsocket6-perl &&\
     && rm -rf /var/lib/apt/lists/*
