@@ -36,8 +36,8 @@ RUN docker-php-ext-configure mysqli --with-mysqli=mysqlnd && \
   #  docker-php-ext-install gmp && \
   # docker-php-ext-install mcrypt && \
     docker-php-ext-install pcntl && \
-    docker-php-ext-configure ldap --with-libdir=lib/x86_64-linux-gnu && \
- #   docker-php-ext-install ldap && \
+  #  docker-php-ext-configure ldap --with-libdir=lib/x86_64-linux-gnu && \
+    docker-php-ext-install ldap && \
     echo ". /etc/environment" >> /etc/apache2/envvars && \
     a2enmod rewrite
 # 
