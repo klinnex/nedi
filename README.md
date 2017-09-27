@@ -15,6 +15,17 @@ Nedi is developed and maintained by NeDi Consulting, released under the GPL v3 l
 Learn more on Nedi homepage www.nedi.ch
 Network tools
 
+NeDi discovers your network devices and tracks connected end-nodes. It contains many additional features for managing enterprise networks:
+*    Intelligent topology awareness
+*   MAC address mapping/tracking
+*   Traffic, error, discard and broadcast graphing with threshold based alerting
+*    Uptime, BGP peer and interface status monitoring
+*    Correlate syslog messages and traps with discovery events
+*    Network maps for documentation and monitoring dashboards
+*    Detecti rouge access points and find missing devices
+*    Extensive reporting ranging from devices, modules, interfaces all the way to assets and nodes 
+
+
 ## How to use this Docker image
 
 ### Mysql
