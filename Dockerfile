@@ -14,7 +14,7 @@ RUN apt-get update &&\
     libnet-telnet-perl\
     libalgorithm-diff-perl\
     librrds-perl\
-    php-mysql\
+    mysqli\
     php-snmp\
     php-gd\
     php-mcrypt\
