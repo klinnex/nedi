@@ -9,7 +9,7 @@ ADD "$NEDI_SOURCE"/nedi-"$NEDI_VERSION".tgz /tmp/
 RUN apt-get update && \
     apt-get install -y\
     apache2\
-    libapache2-mod-php5\
+    libapache2-mod-php\
     mysql-server\
     libnet-snmp-perl\
     libcrypt-rijndael-perl\
@@ -20,10 +20,10 @@ RUN apt-get update && \
     libnet-telnet-perl\
     libalgorithm-diff-perl\
     librrds-perl\
-    php5-mysql\
-    php5-snmp\
-    php5-gd\
-    php5-mcrypt\
+    php-mysql\
+    php-snmp\
+    php-gd\
+    php-mcrypt\
     rrdtool\
     libsocket6-perl
 #    sudo rm -rf /var/lib/apt/lists/* &&\
