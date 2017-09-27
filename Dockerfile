@@ -8,18 +8,18 @@ RUN apt-get update &&\
     libnet-snmp-perl\
     libcrypt-rijndael-perl\
     libcrypt-hcesha-perl\
-    libcrypt-des-perl\
-    libdigest-hmac-perl\
-    libio-pty-perl\
-    libnet-telnet-perl\
-    libalgorithm-diff-perl\
-    librrds-perl\
-    mysqli\
-    php-snmp\
-    php-gd\
-    php-mcrypt\
-    rrdtool\
-    libsocket6-perl &&\
+    libcrypt-des-perl
+   # libdigest-hmac-perl\
+   # libio-pty-perl\
+   # libnet-telnet-perl\
+   # libalgorithm-diff-perl\
+   # librrds-perl\
+   # mysqli\
+   # php-snmp\
+   # php-gd\
+   # php-mcrypt\
+   # rrdtool\
+   # libsocket6-perl &&\
     rm -rf /var/lib/apt/lists/*
 
  # Configure apache and required PHP modules
