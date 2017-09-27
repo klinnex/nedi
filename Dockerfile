@@ -26,11 +26,11 @@ RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-av
  # Configure apache and required PHP modules
 RUN docker-php-ext-configure mysqli --with-mysqli=mysqlnd && \
     docker-php-ext-install mysqli && \
-    docker-php-ext-configure gd --enable-gd-native-ttf --with-freetype-dir=/usr/include/freetype2 --with-png-dir=/usr/include --with-jpeg-dir=/usr/include && \
- #   docker-php-ext-install gd && \
- #   docker-php-ext-install sockets && \
- #   docker-php-ext-install pdo_mysql && \
- #   docker-php-ext-install gettext && \
+  #  docker-php-ext-configure gd --enable-gd-native-ttf --with-freetype-dir=/usr/include/freetype2 --with-png-dir=/usr/include --with-jpeg-dir=/usr/include && \
+    docker-php-ext-install gd && \
+    docker-php-ext-install sockets && \
+    docker-php-ext-install pdo_mysql && \
+    docker-php-ext-install gettext && \
  #   ln -s /usr/include/x86_64-linux-gnu/gmp.h /usr/include/gmp.h && \
  #   docker-php-ext-configure gmp --with-gmp=/usr/include/x86_64-linux-gnu && \
  #   docker-php-ext-install gmp && \
