@@ -16,9 +16,9 @@ RUN apt-get update &&\
     libalgorithm-diff-perl\
     librrds-perl\
    # mysqli\
-    php-snmp\
-    php-gd\
-    php-mcrypt\
+    php7.0-snmp\
+    php7.0-gd\
+    php7.0-mcrypt\
    # rrdtool\
    # libsocket6-perl &&\
     && rm -rf /var/lib/apt/lists/*
