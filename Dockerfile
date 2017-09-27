@@ -12,7 +12,6 @@ RUN apt-get update &&\
     libcrypt-des-perl\
     libdigest-hmac-perl\
     libio-pty-perl\
-    libmcrypt\
     libnet-telnet-perl\
     libalgorithm-diff-perl\
     librrds-perl\
@@ -35,7 +34,7 @@ RUN docker-php-ext-configure mysqli --with-mysqli=mysqlnd && \
     ln -s /usr/include/x86_64-linux-gnu/gmp.h /usr/include/gmp.h && \
   #  docker-php-ext-configure gmp --with-gmp=/usr/include/x86_64-linux-gnu && \
   #  docker-php-ext-install gmp && \
-    docker-php-ext-install mcrypt && \
+  # docker-php-ext-install mcrypt && \
     docker-php-ext-install pcntl && \
  #   docker-php-ext-configure ldap --with-libdir=lib/x86_64-linux-gnu && \
  #   docker-php-ext-install ldap && \
