@@ -8,9 +8,9 @@ RUN apt-get update &&\
     libnet-snmp-perl\
     libcrypt-rijndael-perl\
     libcrypt-hcesha-perl\
-    libcrypt-des-perl
-   # libdigest-hmac-perl\
-   # libio-pty-perl\
+    libcrypt-des-perl\
+    libdigest-hmac-perl\
+    libio-pty-perl&&\
    # libnet-telnet-perl\
    # libalgorithm-diff-perl\
    # librrds-perl\
@@ -20,7 +20,7 @@ RUN apt-get update &&\
    # php-mcrypt\
    # rrdtool\
    # libsocket6-perl &&\
-   # rm -rf /var/lib/apt/lists/*
+    rm -rf /var/lib/apt/lists/*
 
  # Configure apache and required PHP modules
 # RUN docker-php-ext-configure mysqli --with-mysqli=mysqlnd && \
