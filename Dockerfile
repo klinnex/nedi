@@ -82,7 +82,7 @@ COPY php.ini /usr/local/etc/php/
        sed -i "s/dbpass=\"dbpa55=\"${DBPASSWORD}/g" /var/nedi/nedi.conf &&\
        sed -i "s/dbname=\"nedi/dbname=\"${DBNAME}/g" /var/nedi/nedi.conf &&\
        cat /var/nedi/nedi.conf | grep db &&\
-       nedi.pl -i root rootroot
+       /var/nedi/nedi.pl -i root rootroot
 
 EXPOSE 443 80
  
