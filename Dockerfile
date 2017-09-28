@@ -74,6 +74,8 @@ COPY php.ini /usr/local/etc/php/
        tar -xvf /tmp/nedi-"$NEDI_VERSION".tgz --directory /var/nedi &&\
        chown -R www-data:www-data /var/nedi &&\
        chmod 775 /var/nedi/html/log/ &&\
+       sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf &&\
+       sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf&&\
        ln -s /var/nedi/nedi.conf /etc/nedi.conf &&\
       # sed -i -e "s/^upload_max_filesize.*/upload_max_filesize = 2G/"  ${PHP_INI_FILE} &&\
       # sed -i -e "s/^post_max_size.*/post_max_size = 1G/"  ${PHP_INI_FILE}&&\
