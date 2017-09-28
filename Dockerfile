@@ -57,7 +57,7 @@ COPY php.ini /usr/local/etc/php/
        Net::SNMP\
        Net::Telnet\
        Algorithm::Diff\
- #RUN DBD::MySQL
+       DBD::MySQL\
        DBI\
  #RUN cpanm RRDs
        Socket6\
