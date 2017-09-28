@@ -2,6 +2,7 @@ FROM php:7.1-apache
 MAINTAINER Klinnex
 
 ENV APACHE_DOCUMENT_ROOT /var/nedi
+ENV PHP_INI_FILE /usr/local/etc/php/php.ini
 #Install of dependency
 RUN apt-get update &&\
     apt-get install -y\
@@ -68,8 +69,8 @@ COPY php.ini /usr/local/etc/php/
        chown -R www-data:www-data /var/nedi &&\
        chmod 775 /var/nedi/html/log/ &&\
        ln -s /var/nedi/nedi.conf /etc/nedi.conf &&\
-       sed -i -e "s/^upload_max_filesize.*/upload_max_filesize = 2G/"  /usr/local/etc/php/php.ini &&\
-       sed -i -e "s/^post_max_size.*/post_max_size = 1G/"  /usr/local/etc/php/php.ini
+       sed -i -e "s/^upload_max_filesize.*/upload_max_filesize = 2G/"  ${PHP_INI_FILE} &&\
+       sed -i -e "s/^post_max_size.*/post_max_size = 1G/"  ${PHP_INI_FILE}
 
 
 EXPOSE 443 80
