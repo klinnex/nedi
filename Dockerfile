@@ -28,8 +28,8 @@ RUN apt-get update &&\
     && rm -rf /var/lib/apt/lists/*
 
 
-RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf &&\
-    sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf
+RUN sed -ri -e 's!/var/www/html!"${APACHE_DOCUMENT_ROOT}"!g' /etc/apache2/sites-available/*.conf &&\
+    sed -ri -e 's!/var/www/!"${APACHE_DOCUMENT_ROOT}"!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf
 
  # Configure apache and required PHP modules
 RUN docker-php-ext-configure mysqli --with-mysqli=mysqlnd && \
