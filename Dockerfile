@@ -28,9 +28,6 @@ RUN apt-get update &&\
     && rm -rf /var/lib/apt/lists/*
 
 
-RUN sed -ri -e 's!/var/www/html!"${APACHE_DOCUMENT_ROOT}"!g' /etc/apache2/sites-available/*.conf &&\
-    sed -ri -e 's!/var/www/!"${APACHE_DOCUMENT_ROOT}"!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf
-
  # Configure apache and required PHP modules
 RUN docker-php-ext-configure mysqli --with-mysqli=mysqlnd && \
     docker-php-ext-install mysqli && \
@@ -74,8 +71,7 @@ COPY php.ini /usr/local/etc/php/
        tar -xvf /tmp/nedi-"$NEDI_VERSION".tgz --directory /var/nedi &&\
        chown -R www-data:www-data /var/nedi &&\
        chmod 775 /var/nedi/html/log/ &&\
-       sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf &&\
-       sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf&&\
+       sed -ri -e 's!/var/www/html!"${APACHE_DOCUMENT_ROOT}"!g' /etc/apache2/sites-available/*.conf &&\
        ln -s /var/nedi/nedi.conf /etc/nedi.conf &&\
       # sed -i -e "s/^upload_max_filesize.*/upload_max_filesize = 2G/"  ${PHP_INI_FILE} &&\
       # sed -i -e "s/^post_max_size.*/post_max_size = 1G/"  ${PHP_INI_FILE}&&\
@@ -84,7 +80,7 @@ COPY php.ini /usr/local/etc/php/
       # sed -i "s/dbpass=\"dbpa55=\"${DBPASSWORD}/g" /var/nedi/nedi.conf &&\
       # sed -i "s/dbname=\"nedi/dbname=\"${DBNAME}/g" /var/nedi/nedi.conf &&\
       # cat /var/nedi/nedi.conf | grep db &&\
-       /var/nedi/nedi.pl -i root rootroot
+      CMD /var/nedi/nedi.pl -i u root F0ur
 
 EXPOSE 443 80
  
