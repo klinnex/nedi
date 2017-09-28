@@ -81,7 +81,7 @@ COPY php.ini /usr/local/etc/php/
       # cat /var/nedi/nedi.conf | grep db &&\
       RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf
       RUN sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf
-      CMD /var/nedi/nedi.pl -i u root F0ur
+      #CMD /var/nedi/nedi.pl -i u root F0ur
 
 EXPOSE 443 80
  
