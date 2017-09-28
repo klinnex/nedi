@@ -70,8 +70,9 @@ COPY php.ini /usr/local/etc/php/
        chmod 775 /var/nedi/html/log/ &&\
        ln -s /var/nedi/nedi.conf /etc/nedi.conf &&\
        sed -i -e "s/^upload_max_filesize.*/upload_max_filesize = 2G/"  ${PHP_INI_FILE} &&\
-       sed -i -e "s/^post_max_size.*/post_max_size = 1G/"  ${PHP_INI_FILE}
-
+       sed -i -e "s/^post_max_size.*/post_max_size = 1G/"  ${PHP_INI_FILE}&&\
+       cd ${APACHE_DOCUMENT_ROOT}&&\
+       nedi.pl -i root rootroot
 
 EXPOSE 443 80
  
