@@ -1,4 +1,4 @@
-FROM php:7.1-apache
+FROM php:5.6-apache
 MAINTAINER Klinnex
 
 ENV APACHE_DOCUMENT_ROOT /var/nedi/html/
