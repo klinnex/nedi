@@ -3,6 +3,11 @@ MAINTAINER Klinnex
 
 ENV APACHE_DOCUMENT_ROOT /var/nedi
 ENV PHP_INI_FILE /usr/local/etc/php/php.ini
+ENV DBHOST mysql
+ENV DBUSER nedi
+ENV DBPASSWORD dbpa55
+ENV DBNAME nedi
+
 #Install of dependency
 RUN apt-get update &&\
     apt-get install -y\
@@ -72,6 +77,11 @@ COPY php.ini /usr/local/etc/php/
        sed -i -e "s/^upload_max_filesize.*/upload_max_filesize = 2G/"  ${PHP_INI_FILE} &&\
        sed -i -e "s/^post_max_size.*/post_max_size = 1G/"  ${PHP_INI_FILE}&&\
        cd ${APACHE_DOCUMENT_ROOT}&&\
+       sed -i "s/dbhost=\"localhost/dbhost=\"${DBHOST}/g" /var/nedi/nedi.conf &&\
+       sed -i "s/dbuser=\"nedi/dbuser=\"${DBUSER}/g" /var/nedi/nedi.conf &&\
+       sed -i "s/dbpass=\"dbpa55=\"${DBPASSWORD}/g" /var/nedi/nedi.conf &&\
+       sed -i "s/dbname=\"nedi/dbname=\"${DBNAME}/g" /var/nedi/nedi.conf &&\
+       cat /var/nedi/nedi.conf | grep db &&\
        nedi.pl -i root rootroot
 
 EXPOSE 443 80
