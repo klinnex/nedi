@@ -24,6 +24,7 @@ RUN apt-get update &&\
     rrdtool\
     libsocket6-perl \
     cpanminus\
+    libdbd-mysql-perl
     && rm -rf /var/lib/apt/lists/*
 
 
@@ -57,7 +58,7 @@ COPY php.ini /usr/local/etc/php/
        Net::SNMP\
        Net::Telnet\
        Algorithm::Diff\
-       DBD::MySQL\
+ #      DBD::MySQL\
        DBI\
  #RUN cpanm RRDs
        Socket6\
