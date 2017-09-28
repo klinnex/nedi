@@ -24,7 +24,7 @@ RUN apt-get update &&\
     rrdtool\
     libsocket6-perl \
     cpanminus\
-    libdbd-mysql-perl
+    libdbd-mysql-perl\
     && rm -rf /var/lib/apt/lists/*
 
 
