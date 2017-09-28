@@ -25,10 +25,10 @@ RUN apt-get update &&\
     libsocket6-perl \
     cpanminus\
     libdbd-mysql-perl\
-    php5.6-mysql\
-    php5.6-snmp\
-    php5.6-gd\
-    php5.6-mcrypt\
+    php5-mysql\
+    php5-snmp\
+    php5-gd\
+    php5-mcrypt\
     && rm -rf /var/lib/apt/lists/*
 
 
