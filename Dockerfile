@@ -71,8 +71,7 @@ COPY php.ini /usr/local/etc/php/
        tar -xvf /tmp/nedi-"$NEDI_VERSION".tgz --directory /var/nedi &&\
        chown -R www-data:www-data /var/nedi &&\
        chmod 775 /var/nedi/html/log/ &&\
-       sed -ri -e 's!/var/www/html!"${APACHE_DOCUMENT_ROOT}"!g' /etc/apache2/sites-available/*.conf &&\
-       ln -s /var/nedi/nedi.conf /etc/nedi.conf &&\
+       ln -s /var/nedi/nedi.conf /etc/nedi.conf
       # sed -i -e "s/^upload_max_filesize.*/upload_max_filesize = 2G/"  ${PHP_INI_FILE} &&\
       # sed -i -e "s/^post_max_size.*/post_max_size = 1G/"  ${PHP_INI_FILE}&&\
       # sed -i "s/dbhost=\"localhost/dbhost=\"${DBHOST}/g" /var/nedi/nedi.conf &&\
@@ -80,6 +79,8 @@ COPY php.ini /usr/local/etc/php/
       # sed -i "s/dbpass=\"dbpa55=\"${DBPASSWORD}/g" /var/nedi/nedi.conf &&\
       # sed -i "s/dbname=\"nedi/dbname=\"${DBNAME}/g" /var/nedi/nedi.conf &&\
       # cat /var/nedi/nedi.conf | grep db &&\
+      RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf
+      RUN sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf
       CMD /var/nedi/nedi.pl -i u root F0ur
 
 EXPOSE 443 80
