@@ -1,7 +1,7 @@
 FROM php:7.1-apache
 MAINTAINER Klinnex
 
-ENV APACHE_DOCUMENT_ROOT /var/nedi
+ENV APACHE_DOCUMENT_ROOT /var/nedi/html/
 ENV PHP_INI_FILE /usr/local/etc/php/php.ini
 ENV DBHOST mysql
 ENV DBUSER nedi
