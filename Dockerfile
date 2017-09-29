@@ -78,11 +78,12 @@ COPY php.ini /usr/local/etc/php/
        ln -s /var/nedi/nedi.conf /etc/nedi.conf &&\
       sed -i -e "s/^upload_max_filesize.*/upload_max_filesize = 2G/"  "${PHP_INI_FILE}" &&\
       sed -i -e "s/^post_max_size.*/post_max_size = 1G/"  "${PHP_INI_FILE}"&&\
-      sed -i '/dbhost/s/localhost/'"!${DBHOST}!"'/g' /var/nedi/nedi.conf &&\
-      cat /var/nedi/nedi.conf | grep dbhost 
-      # sed -i "s/dbuser \"nedi/dbuser=\"${DBUSER}/g" /var/nedi/nedi.conf &&\
-      # sed -i "s/dbpass=\"dbpa55=\"${DBPASSWORD}/g" /var/nedi/nedi.conf &&\
-      # sed -i "s/dbname=\"nedi/dbname=\"${DBNAME}/g" /var/nedi/nedi.conf &&\
+      sed -i '/dbhost/s/localhost/'"${DBHOST}"'/g' /var/nedi/nedi.conf &&\
+      sed -i '/dbuser/s/nedi/'"${DBUSER}"'/g' /var/nedi/nedi.conf &&\
+      sed -i '/dbpass/s/dbpa55/'"${DBPASSWORD}"'/g' /var/nedi/nedi.conf &&\
+      sed -i 'dbname/s/nedi/'"${DBNAME}"'/g' /var/nedi/nedi.conf &&\
+      cat /var/nedi/nedi.conf | grep db 
+   
       # cat /var/nedi/nedi.conf | grep db &&\
       RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf
       RUN sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf
