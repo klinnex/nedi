@@ -1,10 +1,16 @@
-**** Package Not Ready ****
+# 
+![Nedi logo](http://www.nedi.ch/wp-content/uploads/nedi-dgray-320.jpg)
+
+
+*** Launch of The BETA :D *
+
+Version 0.9
+Changelog.
+
 
 Please be patient ........
 ***************************
 
-# 
-![Nedi logo](http://www.nedi.ch/wp-content/uploads/nedi-dgray-320.jpg)
 
 Nedi
 
