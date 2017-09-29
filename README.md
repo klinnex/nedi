@@ -42,7 +42,7 @@ Here, we store data on the host system under `/network-mysql` ( don't forget to 
 ### Nedi
 
 ```bash
-$ docker run -ti -d -p 443:443 --name nedi --link network-mysql:mysql klinnex/nedi
+$ docker run -ti -d -p 514:514 -p 80:80 --name nedi --link network-mysql:mysql klinnex/nedi
 ```
 ### Configuration 
 
@@ -69,8 +69,11 @@ services:
     image: klinnex/nedi
     environment:
       - MYSQL_ENV_MYSQL_ROOT_PASSWORD=Password-Mysql
+    volumes:
+      - /docker/nedi:/var/nedi
     ports:
       - "80:80"
+      - "514:514"
 
 And next :
 
