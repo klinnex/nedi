@@ -78,7 +78,7 @@ COPY php.ini /usr/local/etc/php/
        ln -s /var/nedi/nedi.conf /etc/nedi.conf &&\
       sed -i -e "s/^upload_max_filesize.*/upload_max_filesize = 2G/"  "${PHP_INI_FILE}" &&\
       sed -i -e "s/^post_max_size.*/post_max_size = 1G/"  "${PHP_INI_FILE}"&&\
-      sed -i -e s/dbhost\t localhost/dbhost \t"${DBHOST}"/g /var/nedi/nedi.conf &&\
+      sed -i -e "s/dbhost\t localhost/dbhost \t${DBHOST}/g" /var/nedi/nedi.conf &&\
       cat /var/nedi/nedi.conf | grep dbhost 
       # sed -i "s/dbuser \"nedi/dbuser=\"${DBUSER}/g" /var/nedi/nedi.conf &&\
       # sed -i "s/dbpass=\"dbpa55=\"${DBPASSWORD}/g" /var/nedi/nedi.conf &&\
