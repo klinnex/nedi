@@ -81,7 +81,7 @@ COPY php.ini /usr/local/etc/php/
       sed -i '/dbhost/s/localhost/'"${DBHOST}"'/g' /var/nedi/nedi.conf &&\
       sed -i '/dbuser/s/nedi/'"${DBUSER}"'/g' /var/nedi/nedi.conf &&\
       sed -i '/dbpass/s/dbpa55/'"${DBPASSWORD}"'/g' /var/nedi/nedi.conf &&\
-      sed -i 'dbname/s/nedi/'"${DBNAME}"'/g' /var/nedi/nedi.conf &&\
+      sed -i '/dbname/s/nedi/'"${DBNAME}"'/g' /var/nedi/nedi.conf &&\
       cat /var/nedi/nedi.conf | grep db 
    
       # cat /var/nedi/nedi.conf | grep db &&\
