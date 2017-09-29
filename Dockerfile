@@ -4,9 +4,12 @@ MAINTAINER Klinnex
 ENV APACHE_DOCUMENT_ROOT /var/nedi/html/
 ENV PHP_INI_FILE /usr/local/etc/php/php.ini
 ENV DBHOST mysql
-ENV DBUSER nedi
-ENV DBPASSWORD dbpa55
-ENV DBNAME nedi
+#ENV DBUSER nedi
+#ENV DBPASSWORD dbpa55
+#ENV DBNAME nedi
+ENV DBUSER yann 
+ENV DBPASSWORD klinnex
+ENV DBNAME NET-NEDI
 
 #Install of dependency
 RUN apt-get update &&\
