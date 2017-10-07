@@ -26,6 +26,8 @@ RUN apt-get update &&\
     libsocket6-perl \
     cpanminus\
     libdbd-mysql-perl\
+    libsnmp-dev\
+    libsnmp30\
     php5-mysql\
     php5-snmp\
     php5-gd\
