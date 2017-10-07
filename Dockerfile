@@ -23,6 +23,7 @@ RUN apt-get update &&\
     libalgorithm-diff-perl\
     librrds-perl\
     rrdtool\
+    cron\
     libsocket6-perl \
     cpanminus\
     libdbd-mysql-perl\
