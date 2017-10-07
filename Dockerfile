@@ -41,6 +41,7 @@ RUN docker-php-ext-configure mysqli --with-mysqli=mysqlnd && \
     docker-php-ext-install sockets && \
     docker-php-ext-install pdo_mysql && \
     docker-php-ext-install gettext && \
+    docker-php-ext-install snmp &&\
     ln -s /usr/include/x86_64-linux-gnu/gmp.h /usr/include/gmp.h && \
   #  docker-php-ext-configure gmp --with-gmp=/usr/include/x86_64-linux-gnu && \
   #  docker-php-ext-install gmp && \
