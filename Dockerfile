@@ -33,14 +33,17 @@ RUN apt-get update &&\
     php5-snmp\
     php5-gd\
     php5-mcrypt\
+    libfreetype6-dev\
+    libjpeg62-turbo-dev\
+    mbstring\
     && rm -rf /var/lib/apt/lists/*
 
 
  # Configure apache and required PHP modules
 RUN docker-php-ext-configure mysqli --with-mysqli=mysqlnd && \
     docker-php-ext-install mysqli && \
-    docker-php-ext-configure gd --enable-gd-native-ttf && \
-  #  docker-php-ext-install gd && \
+    docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ && \
+    docker-php-ext-install gd && \
     docker-php-ext-install sockets && \
     docker-php-ext-install pdo_mysql && \
     docker-php-ext-install gettext && \
