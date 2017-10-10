@@ -39,7 +39,7 @@ RUN apt-get update &&\
  # Configure apache and required PHP modules
 RUN docker-php-ext-configure mysqli --with-mysqli=mysqlnd && \
     docker-php-ext-install mysqli && \
-    docker-php-ext-configure gd --enable-gd-native-ttf --with-freetype-dir=/usr/include/freetype2 --with-png-dir=/usr/include --with-jpeg-dir=/usr/include && \
+    docker-php-ext-configure gd --enable-gd-native-ttf && \
   #  docker-php-ext-install gd && \
     docker-php-ext-install sockets && \
     docker-php-ext-install pdo_mysql && \
