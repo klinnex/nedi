@@ -35,7 +35,6 @@ RUN apt-get update &&\
     php5-mcrypt\
     libfreetype6-dev\
     libjpeg62-turbo-dev\
-    mbstring\
     && rm -rf /var/lib/apt/lists/*
 
 
