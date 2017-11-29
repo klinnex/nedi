@@ -12,7 +12,6 @@ ENV DBNAME nedi
 #Install of dependency
 RUN apt-get update &&\
     apt-get install -y\
-    #mysql-server\
     libnet-snmp-perl\
     libcrypt-rijndael-perl\
     libcrypt-hcesha-perl\
