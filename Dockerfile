@@ -12,6 +12,7 @@ ENV DBNAME nedi
 #Install of dependency
 RUN apt-get update &&\
     apt-get install -y\
+    expect\
     libnet-snmp-perl\
     libcrypt-rijndael-perl\
     libcrypt-hcesha-perl\
