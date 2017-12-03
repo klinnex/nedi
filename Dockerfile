@@ -4,8 +4,7 @@ MAINTAINER Klinnex
 ENV APACHE_DOCUMENT_ROOT /var/nedi/html/
 ENV PHP_INI_FILE /usr/local/etc/php/php.ini
 ENV DBHOST mysql
-ENV DBUSER nedi
-ENV DBPASSWORD dbpa55
+ENV DBUSER root
 ENV DBNAME nedi
 
 
@@ -87,7 +86,7 @@ COPY php.ini /usr/local/etc/php/
       sed -i -e "s/^post_max_size.*/post_max_size = 1G/"  "${PHP_INI_FILE}"&&\
       sed -i '/dbhost/s/localhost/'"${DBHOST}"'/g' /var/nedi/nedi.conf &&\
       sed -i '/dbuser/s/nedi/'"${DBUSER}"'/g' /var/nedi/nedi.conf &&\
-      sed -i '/dbpass/s/dbpa55/'"${DBPASSWORD}"'/g' /var/nedi/nedi.conf &&\
+      sed -i '/dbpass/s/dbpa55/'"$MYSQL_ROOT_PASSWORD}"'/g' /var/nedi/nedi.conf &&\
       sed -i '/dbname/s/nedi/'"${DBNAME}"'/g' /var/nedi/nedi.conf &&\
       
    
