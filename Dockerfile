@@ -22,10 +22,8 @@ RUN apt-get update &&\
     libalgorithm-diff-perl\
     librrds-perl\
     rrdtool\
-##DEBUG
     vi\
     mysql-client\
-##END OF DEBUG
     cron\
     libsocket6-perl \
     cpanminus\
