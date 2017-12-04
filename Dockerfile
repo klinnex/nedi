@@ -23,7 +23,7 @@ RUN apt-get update &&\
     librrds-perl\
     rrdtool\
 ##DEBUG
-    vim\
+    vi\
     mysql-client\
 ##END OF DEBUG
     cron\
