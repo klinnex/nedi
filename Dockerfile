@@ -11,7 +11,6 @@ ENV DBNAME nedi
 #Install of dependency
 RUN apt-get update &&\
     apt-get install -y\
-    expect\
     libnet-snmp-perl\
     libcrypt-rijndael-perl\
     libcrypt-hcesha-perl\
@@ -22,7 +21,7 @@ RUN apt-get update &&\
     libalgorithm-diff-perl\
     librrds-perl\
     rrdtool\
-    vi\
+    vim\
     mysql-client\
     cron\
     libsocket6-perl \
