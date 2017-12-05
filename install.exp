@@ -1,0 +1,13 @@
+#!/usr/bin/expect
+set timeout 5
+set user [lindex $argv 0]
+set password [lindex $argv 1]
+
+spawn /var/nedi/nedi.pl -i
+expect "user:"
+        send "$user\r"
+        expect "pass:"
+        send "$password\r";
+expect "on:";
+        send "\r";
+        interact
