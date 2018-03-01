@@ -59,7 +59,7 @@ $ docker run -ti -d -p 514:514 -p 80:80 --name nedi --link network-mysql:mysql k
 ### Docker compose 
 
 You can create an all-in-one YAML deployment descriptor with Docker compose, like this : 
-
+```yaml
 version: '2'
 services:
   network-mysql:
@@ -80,7 +80,7 @@ services:
     ports:
       - "80:80"
       - "514:514"
-
+```
 And next :
 
 ```bash 
