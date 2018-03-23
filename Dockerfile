@@ -9,7 +9,8 @@ ENV DBNAME nedi
 
 
 #Install of dependency
-RUN apt-get update &&\
+RUN rm /etc/apt/preferences.d/no-debian-php &&\
+    apt-get update &&\
     apt-get install -y\
     libnet-snmp-perl\
     expect\
