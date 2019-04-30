@@ -62,7 +62,7 @@ RUN docker-php-ext-configure mysqli --with-mysqli=mysqlnd && \
 COPY php.ini /usr/local/etc/php/
 # 
  ENV NEDI_SOURCE http://www.nedi.ch/pub
- ENV NEDI_VERSION 1.6C
+ ENV NEDI_VERSION 1.7C
 # 
  RUN cpanm \
        Net::SNMP\
@@ -79,9 +79,9 @@ COPY php.ini /usr/local/etc/php/
  #RUN cpanm libnet
 # 
 # 
- ADD     "$NEDI_SOURCE"/nedi-"$NEDI_VERSION".tgz /tmp/
+ ADD     "$NEDI_SOURCE"/nedi-"$NEDI_VERSION".pkg /tmp/
  RUN mkdir /var/nedi &&\
-       tar -xvf /tmp/nedi*.tgz --directory /var/nedi &&\
+       tar -xvf /tmp/nedi*.pkg --directory /var/nedi &&\
        chown -R www-data:www-data /var/nedi &&\
        chmod 775 /var/nedi/html/log/ &&\
        ln -s /var/nedi/nedi.conf /etc/nedi.conf &&\
