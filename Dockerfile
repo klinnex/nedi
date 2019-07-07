@@ -31,10 +31,10 @@ RUN rm /etc/apt/preferences.d/no-debian-php &&\
     libdbd-mysql-perl\
     libsnmp-dev\
     libsnmp30\
-    php5-mysql\
-    php5-snmp\
-    php5-gd\
-    php5-mcrypt\
+    php-mysql\
+    php-snmp\
+    php-gd\
+    php-mcrypt\
     libfreetype6-dev\
     libjpeg62-turbo-dev\
     && rm -rf /var/lib/apt/lists/*
