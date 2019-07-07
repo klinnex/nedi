@@ -97,6 +97,7 @@ COPY php.ini /usr/local/etc/php/
      # CMD /var/nedi/nedi.pl -i u root getenv(\"MYSQL_ENV_MYSQL_ROOT_PASSWORD\") && bash
      #ENTRYPOINT
      COPY docker-entrypoint.sh /usr/local/bin/
+     COPY install.exp /usr/local/bin/
      RUN ln -s usr/local/bin/docker-entrypoint.sh / # backwards compat
      ENTRYPOINT ["docker-entrypoint.sh"]
 WORKDIR /var/nedi/
