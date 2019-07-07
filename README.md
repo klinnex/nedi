@@ -4,7 +4,7 @@
 
 *** Launch of The BETA :D *
 
-Version 0.9
+Version 0.95
 Changelog.
 
 
