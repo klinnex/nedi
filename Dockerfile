@@ -81,7 +81,7 @@ COPY php.ini /usr/local/etc/php/
 # 
  ADD     "$NEDI_SOURCE"/nedi-"$NEDI_VERSION".pkg /tmp/
  RUN mkdir /var/nedi &&\
-       tar -xvf /tmp/nedi*.pkg --directory /var/nedi &&\
+       tar -xvf /tmp/nedi*.pkg --directory /var/nedi/ &&\
        chown -R www-data:www-data /var/nedi &&\
        chmod 775 /var/nedi/html/log/ &&\
        ln -s /var/nedi/nedi.conf /etc/nedi.conf &&\
@@ -93,6 +93,7 @@ COPY php.ini /usr/local/etc/php/
       sed -i '/dbname/s/nedi/'"${DBNAME}"'/g' /var/nedi/nedi.conf &&\ 
       # cat /var/nedi/nedi.conf | grep db &&\
       sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf &&\
+      rm -f /tmp/nedi*.pkg &&\
       sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf
      # CMD /var/nedi/nedi.pl -i u root getenv(\"MYSQL_ENV_MYSQL_ROOT_PASSWORD\") && bash
      #ENTRYPOINT
