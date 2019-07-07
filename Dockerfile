@@ -98,7 +98,7 @@ COPY php.ini /usr/local/etc/php/
      #ENTRYPOINT
      COPY docker-entrypoint.sh /usr/local/bin/
      RUN ln -s usr/local/bin/docker-entrypoint.sh / # backwards compat
-     ENTRYPOINT ["docker-entrypoint.sh"]
+     ENTRYPOINT ["/usr/loval/bin/docker-entrypoint.sh"]
 WORKDIR /var/nedi/
 EXPOSE 443 80 514
  
