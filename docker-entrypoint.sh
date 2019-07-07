@@ -1,5 +1,5 @@
 #!/bin/sh
 
 # Create user
-./nedi.pl -i $1 $2 
+/var/nedi/nedi.pl -i $1 $2 
 
