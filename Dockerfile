@@ -83,6 +83,7 @@ COPY php.ini /usr/local/etc/php/
  RUN mkdir /var/nedi &&\
         mkdir /tmp/nedi &&\
        tar -xvf /tmp/nedi*.pkg --directory /tmp/nedi/ &&\
+       mv /tmp/nedi/ /var/nedi &&\
        chown -R www-data:www-data /var/nedi
        #chmod 775 /var/nedi/html/log/ &&\
        #ln -s /var/nedi/nedi.conf /etc/nedi.conf &&\
