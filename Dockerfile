@@ -89,12 +89,12 @@ COPY php.ini /usr/local/etc/php/
       sed -i -e "s/^upload_max_filesize.*/upload_max_filesize = 2G/"  "${PHP_INI_FILE}" &&\
       sed -i -e "s/^post_max_size.*/post_max_size = 1G/"  "${PHP_INI_FILE}"&&\
       sed -i '/dbhost/s/localhost/'"${DBHOST}"'/g' /var/local/nedi/nedi.conf &&\
-      #sed -i '/dbuser/s/nedi/'"${DBUSER}"'/g' /var/local/nedi/nedi.conf &&\
-      #sed -i '/dbpass/s/dbpass55/'${MYSQL_ROOT_PASSWORD}'/g' /var/local/nedi/nedi.conf &&\
-      #sed -i '/dbname/s/nedi/'"${DBNAME}"'/g' /var/local/nedi/nedi.conf &&\ 
-      #sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf &&\
+      sed -i '/dbuser/s/nedi/'"${DBUSER}"'/g' /var/local/nedi/nedi.conf &&\
+      sed -i '/dbpass/s/dbpass55/'${MYSQL_ROOT_PASSWORD}'/g' /var/local/nedi/nedi.conf &&\
+      sed -i '/dbname/s/nedi/'"${DBNAME}"'/g' /var/local/nedi/nedi.conf &&\ 
+      sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf &&\
       #rm -f /tmp/nedi*.pkg &&\
-      #sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf
+      sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf
      #ENTRYPOINT
      COPY docker-entrypoint.sh /usr/local/bin/
      RUN ln -s /usr/local/bin/docker-entrypoint.sh / &&\
