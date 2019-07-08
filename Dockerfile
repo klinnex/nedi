@@ -1,7 +1,7 @@
 FROM php:7.0-apache
 MAINTAINER Klinnex
 
-ENV APACHE_DOCUMENT_ROOT /var/nedi/html/
+ENV APACHE_DOCUMENT_ROOT /var/local/nedi/html/
 ENV PHP_INI_FILE /usr/local/etc/php/php.ini
 ENV DBHOST mysql
 ENV DBUSER root
@@ -84,14 +84,14 @@ COPY php.ini /usr/local/etc/php/
        tar -xvf /tmp/nedi*.pkg --directory /tmp/nedi/ &&\
        mv /tmp/nedi /var/local/nedi &&\
        chown -R www-data:www-data /var/local/nedi
-       #chmod 775 /var/nedi/html/log/ &&\
-       #ln -s /var/nedi/nedi.conf /etc/nedi.conf &&\
-      #sed -i -e "s/^upload_max_filesize.*/upload_max_filesize = 2G/"  "${PHP_INI_FILE}" &&\
-      #sed -i -e "s/^post_max_size.*/post_max_size = 1G/"  "${PHP_INI_FILE}"&&\
-      #sed -i '/dbhost/s/localhost/'"${DBHOST}"'/g' /var/nedi/nedi.conf &&\
-      #sed -i '/dbuser/s/nedi/'"${DBUSER}"'/g' /var/nedi/nedi.conf &&\
-      #sed -i '/dbpass/s/dbpass55/'${MYSQL_ROOT_PASSWORD}'/g' /var/nedi/nedi.conf &&\
-      #sed -i '/dbname/s/nedi/'"${DBNAME}"'/g' /var/nedi/nedi.conf &&\ 
+       chmod 775 /var/local/nedi/html/log/ &&\
+       ln -s /var/local/nedi/nedi.conf /etc/nedi.conf &&\
+      sed -i -e "s/^upload_max_filesize.*/upload_max_filesize = 2G/"  "${PHP_INI_FILE}" &&\
+      sed -i -e "s/^post_max_size.*/post_max_size = 1G/"  "${PHP_INI_FILE}"&&\
+      sed -i '/dbhost/s/localhost/'"${DBHOST}"'/g' /var/local/nedi/nedi.conf &&\
+      #sed -i '/dbuser/s/nedi/'"${DBUSER}"'/g' /var/local/nedi/nedi.conf &&\
+      #sed -i '/dbpass/s/dbpass55/'${MYSQL_ROOT_PASSWORD}'/g' /var/local/nedi/nedi.conf &&\
+      #sed -i '/dbname/s/nedi/'"${DBNAME}"'/g' /var/local/nedi/nedi.conf &&\ 
       #sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf &&\
       #rm -f /tmp/nedi*.pkg &&\
       #sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf
@@ -100,6 +100,6 @@ COPY php.ini /usr/local/etc/php/
      RUN ln -s /usr/local/bin/docker-entrypoint.sh / &&\
      chmod +x /usr/local/bin/docker-entrypoint.sh
      #ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
-WORKDIR /var/nedi/
+WORKDIR /var/local/nedi/
 EXPOSE 443 80 514
  
