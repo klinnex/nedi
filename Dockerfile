@@ -90,7 +90,7 @@ COPY php.ini /usr/local/etc/php/
       sed -i -e "s/^post_max_size.*/post_max_size = 1G/"  "${PHP_INI_FILE}"&&\
       sed -i '/dbhost/s/localhost/'"${DBHOST}"'/g' /var/local/nedi/nedi.conf &&\
       sed -i '/dbuser/s/nedi/'"${DBUSER}"'/g' /var/local/nedi/nedi.conf &&\
-      sed -i '/dbpass/s/dbpa55/'${MYSQL_ROOT_PASSWORD}'/g' /var/local/nedi/nedi.conf &&\
+      #sed -i '/dbpass/s/dbpa55/'${MYSQL_ROOT_PASSWORD}'/g' /var/local/nedi/nedi.conf &&\
       sed -i '/dbname/s/nedi/'"${DBNAME}"'/g' /var/local/nedi/nedi.conf &&\ 
       sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf &&\
       #rm -f /tmp/nedi*.pkg &&\
