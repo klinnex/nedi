@@ -92,7 +92,7 @@ COPY php.ini /usr/local/etc/php/
       sed -i '/dbuser/s/nedi/'"${DBUSER}"'/g' /var/local/nedi/nedi.conf &&\
       sed -i '/dbpass/s/dbpa55/'${MYSQL_ROOT_PASSWORD}'/g' /var/local/nedi/nedi.conf &&\
       sed -i '/dbname/s/nedi/'"${DBNAME}"'/g' /var/local/nedi/nedi.conf &&\ 
-      sed -i '/nedipath/s/'/var/nedi'/'/var/local/nedi'/g' /var/local/nedi/nedi.conf &&\ 
+      sed -i '/nedipath/s/"/var/nedi"/'"/var/local/nedi"'/g' /var/local/nedi/nedi.conf &&\ 
       sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf &&\
       #rm -f /tmp/nedi*.pkg &&\
       sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf
