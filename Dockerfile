@@ -83,7 +83,7 @@ COPY php.ini /usr/local/etc/php/
  RUN   mkdir /tmp/nedi &&\
        tar -xvf /tmp/nedi*.pkg --directory /tmp/nedi/ &&\
        mv /tmp/nedi /var/local/nedi &&\
-       chown -R www-data:www-data /var/local/nedi
+       chown -R www-data:www-data /var/local/nedi &&\
        chmod 775 /var/local/nedi/html/log/ &&\
        ln -s /var/local/nedi/nedi.conf /etc/nedi.conf &&\
       sed -i -e "s/^upload_max_filesize.*/upload_max_filesize = 2G/"  "${PHP_INI_FILE}" &&\
