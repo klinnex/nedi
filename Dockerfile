@@ -83,16 +83,16 @@ COPY php.ini /usr/local/etc/php/
  RUN   mkdir /tmp/nedi &&\
        tar -xvf /tmp/nedi*.pkg --directory /tmp/nedi/ &&\
        mv /tmp/nedi /var/local/nedi &&\
-       chown -R www-data:www-data /var/nedi &&\
-       chmod 775 /var/nedi/html/log/ &&\
+       chown -R www-data:www-data /var/local/nedi &&\
+       chmod 775 /var/local/nedi/html/log/ &&\
        ln -s /var/local/nedi/nedi.conf /etc/nedi.conf &&\
       sed -i -e "s/^upload_max_filesize.*/upload_max_filesize = 2G/"  "${PHP_INI_FILE}" &&\
       sed -i -e "s/^post_max_size.*/post_max_size = 1G/"  "${PHP_INI_FILE}"&&\
-      sed -i '/dbhost/s/localhost/'"${DBHOST}"'/g' /var/nedi/nedi.conf &&\
-      sed -i '/dbuser/s/nedi/'"${DBUSER}"'/g' /var/nedi/nedi.conf &&\
-      sed -i 's#/var/nedi#/var/local/nedi#g' /var/nedi/nedi.conf &&\
-      sed -i '/dbpass/s/dbpa55/'${MYSQL_ROOT_PASSWORD}'/g' /var/nedi/nedi.conf &&\
-      sed -i '/dbname/s/nedi/'"${DBNAME}"'/g' /var/nedi/nedi.conf &&\ 
+      sed -i '/dbhost/s/localhost/'"${DBHOST}"'/g' /var/local/nedi/nedi.conf &&\
+      sed -i '/dbuser/s/nedi/'"${DBUSER}"'/g' /var/local/nedi/nedi.conf &&\
+      sed -i 's#/var/nedi#/var/local/nedi#g' /var/local/nedi/nedi.conf &&\
+      sed -i '/dbpass/s/dbpa55/'${MYSQL_ROOT_PASSWORD}'/g' /var/local/nedi/nedi.conf &&\
+      sed -i '/dbname/s/nedi/'"${DBNAME}"'/g' /var/local/nedi/nedi.conf &&\ 
       sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf &&\
       #rm -f /tmp/nedi*.pkg &&\
       sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf
