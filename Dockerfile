@@ -95,7 +95,6 @@ COPY php.ini /usr/local/etc/php/
       sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf &&\
       #rm -f /tmp/nedi*.pkg &&\
       sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf
-     ENTRYPOINT
      COPY docker-entrypoint.sh /usr/local/bin/
      RUN ln -s /usr/local/bin/docker-entrypoint.sh / &&\
      chmod +x /usr/local/bin/docker-entrypoint.sh
