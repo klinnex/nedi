@@ -1,4 +1,4 @@
-FROM debian:unstable
+FROM php:7.0-apache
 MAINTAINER Klinnex
 
 ENV APACHE_DOCUMENT_ROOT /var/local/nedi/html/
@@ -62,7 +62,7 @@ RUN docker-php-ext-configure mysqli --with-mysqli=mysqlnd && \
 COPY php.ini /usr/local/etc/php/
 # 
  ENV NEDI_SOURCE http://www.nedi.ch/pub
- ENV NEDI_VERSION 2.0C
+ ENV NEDI_VERSION 1.7C
 # 
  RUN cpanm \
        Net::SNMP\
@@ -79,7 +79,7 @@ COPY php.ini /usr/local/etc/php/
  #RUN cpanm libnet
 # 
 # 
- ADD     "$NEDI_SOURCE"/nedi-"$NEDI_VERSION".npkg /tmp/
+ ADD     "$NEDI_SOURCE"/nedi-"$NEDI_VERSION".pkg /tmp/
  RUN   mkdir /tmp/nedi &&\
        tar -xvf /tmp/nedi*.pkg --directory /tmp/nedi/ &&\
        mv /tmp/nedi /var/local/nedi &&\
@@ -103,3 +103,4 @@ COPY php.ini /usr/local/etc/php/
 WORKDIR /var/local/nedi/
 EXPOSE 443 80 514
  
+
