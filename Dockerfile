@@ -1,4 +1,4 @@
-FROM php:lastest
+FROM php:fpm-alpine
 MAINTAINER Klinnex
 
 ENV APACHE_DOCUMENT_ROOT /var/local/nedi/html/
