@@ -34,6 +34,8 @@ RUN rm /etc/apt/preferences.d/no-debian-php &&\
     php-mysql\
     php-snmp\
     php-gd\
+    fping\
+    inetutils-ping\
     php-mcrypt\
     libfreetype6-dev\
     libjpeg62-turbo-dev\
