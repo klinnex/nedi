@@ -1,4 +1,4 @@
-FROM php:fpm-alpine
+FROM debian:unstable
 MAINTAINER Klinnex
 
 ENV APACHE_DOCUMENT_ROOT /var/local/nedi/html/
