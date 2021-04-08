@@ -97,9 +97,10 @@ COPY php.ini /usr/local/etc/php/
       #rm -f /tmp/nedi*.pkg &&\
       sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf
      COPY docker-entrypoint.sh /usr/local/bin/
+     COPY install.exp /var/local/nedi
      RUN ln -s /usr/local/bin/docker-entrypoint.sh / &&\
      chmod +x /usr/local/bin/docker-entrypoint.sh
-     #ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
+     ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
      #CMD ["--no-daemonize"]
 WORKDIR /var/local/nedi/
 EXPOSE 443 80 514
