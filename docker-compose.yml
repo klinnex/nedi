@@ -1,0 +1,31 @@
+version: "3"
+services:
+  mysql:
+    image: mariadb:10.3
+    environment:
+      MYSQL_ROOT_PASSWORD: N3diRox
+    restart: always
+    volumes:
+      - /docker/mariadb/conf:/etc/mysql
+      - /docker/mysql:/var/lib/mysql
+    networks:
+      - backend
+  nedi:
+    depends_on:
+      - mysql
+    image: klinnex/nedi
+    environment:
+      - MYSQL_ROOT_PASSWORD=N3diRox
+    volumes:
+      - /docker/nedi:/var/nedi
+    ports:
+      - "80:80"
+      - "514:514"
+    networks:
+      - frontend
+      - backend
+networks:
+  frontend:
+    driver: bridge         
+  backend:
+    driver: bridge
