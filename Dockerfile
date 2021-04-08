@@ -6,7 +6,7 @@ ENV PHP_INI_FILE /usr/local/etc/php/php.ini
 ENV DBHOST mysql
 ENV DBUSER root
 ENV DBNAME nedi
-ENV DBPASS Albert
+ENV DBPASS $MYSQL_ROOT_PASSWORD
 
 #Install of dependency
 RUN rm /etc/apt/preferences.d/no-debian-php &&\
