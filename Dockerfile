@@ -100,6 +100,7 @@ COPY php.ini /usr/local/etc/php/
      COPY install.exp /var/local/nedi
      RUN ln -s /usr/local/bin/docker-entrypoint.sh / &&\
      chmod +x /usr/local/bin/docker-entrypoint.sh
+     chmod +x /var/local/nedi/install.exp
      ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
      #CMD ["--no-daemonize"]
 WORKDIR /var/local/nedi/
