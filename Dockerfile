@@ -101,7 +101,7 @@ COPY php.ini /usr/local/etc/php/
      RUN ln -s /usr/local/bin/docker-entrypoint.sh / &&\
      chmod +x /usr/local/bin/docker-entrypoint.sh &&\
      chmod +x /var/local/nedi/install.exp
-     ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
+#     ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
      CMD ["--no-daemonize"]
 WORKDIR /var/local/nedi/
 EXPOSE 443 80 514
