@@ -6,8 +6,8 @@ services:
       MYSQL_ROOT_PASSWORD: N3diRox
     restart: always
     volumes:
-      - /docker/mariadb/conf:/etc/mysql
-      - /docker/mysql:/var/lib/mysql
+      - /Users/ydeboeuf/docker/mariadb/conf:/etc/mysql
+      - /Users/ydeboeuf/docker/mysql:/var/lib/mysql
     networks:
       - backend
   nedi:
@@ -17,7 +17,7 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=N3diRox
     volumes:
-      - /docker/nedi:/var/nedi
+      - /Users/ydeboeuf/docker/nedi:/var/nedi
     ports:
       - "80:80"
       - "514:514"

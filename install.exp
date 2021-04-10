@@ -11,3 +11,4 @@ expect "user:"
 expect "on:";
         send "\r";
         interact
+expect "done:"
