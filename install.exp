@@ -10,5 +10,5 @@ expect "user:"
         send "$password\r";
 expect "on:";
         send "\r";
-        interact
 expect "done:"
+        interact
