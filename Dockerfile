@@ -93,7 +93,7 @@ COPY php.ini /usr/local/etc/php/
       sed -i '/dbuser/s/nedi/'"${DBUSER}"'/g' /var/local/nedi/nedi.conf &&\
       sed -i 's#/var/nedi#/var/local/nedi#g' /var/local/nedi/nedi.conf &&\
       sed -i '/dbname/s/nedi/'"${DBNAME}"'/g' /var/local/nedi/nedi.conf &&\ 
-      sed -ri 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf &&\
+#      sed -ri 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf &&\
       #rm -f /tmp/nedi*.pkg &&\
       sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf
      COPY docker-entrypoint.sh /usr/local/bin/
